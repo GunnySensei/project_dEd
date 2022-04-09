@@ -10,7 +10,7 @@
     "seed": "cd server && npm run seed",
     "yarnDevelop": "concurrently \"cd server && yarn watch\" \"cd client && yarn start\"",
     "yarnSeed": "cd server && yarn seed",
-    "yarnInstall": "cd server && yarn i && cd ../client && yarn i"
+    "yarnInstall": "cd server && yarn install && cd ../client && yarn install"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
