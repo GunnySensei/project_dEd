@@ -1,17 +1,20 @@
 import React from "react";
 
-import Userclock from "../src/components/Userclock";
-import Leaderboard from "../src/components/Leaderboard";
-import Footer from "../src/components/Footer";
+import Userclock from "../components/Userclock";
+import Leaderboard from "../components/Leaderboard";
 
 const Home = () => {
   return (
-    <main>
-      <div>
-        <Userclock></Userclock>
-        <Leaderboard></Leaderboard>
-        <Leaderboard></Leaderboard>
-      </div>
-    </main>
+    <>
+      <main>
+        <div>
+          <Userclock></Userclock>
+          <Leaderboard></Leaderboard>
+          <Leaderboard></Leaderboard>
+        </div>
+      </main>
+    </>
   );
 };
+
+export default Home;
