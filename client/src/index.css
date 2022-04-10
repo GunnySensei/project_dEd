@@ -90,6 +90,7 @@ a:hover {
 
 header {
   background: var(--dark);
+  max-height: 5%;
 }
 
 header a {
@@ -118,7 +119,7 @@ button[disabled] {
 }
 
 img {
-  max-width: 100%;
+  max-width: 10%;
 }
 
 span[role="img"] {
@@ -288,4 +289,9 @@ a {
 
 .navActive {
   color: var(--secondary);
+}
+
+/* Nav CSS */
+.navText {
+  justify-content: flex-end;
 }
