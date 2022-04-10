@@ -1,12 +1,13 @@
 import React from "react";
+import logo from "../../assets/images/reaper-logo.png";
 
-function App() {
+const Nav = () => {
   return (
     <header className="flex-row px-1">
       <h2>
         <a data-testid="link" href="/">
           <span role="img" aria-label="Reaper Logo">
-            <img href="../../assets/images/reaper-logo.png"></img>
+            <img src={logo}></img>
           </span>
         </a>
       </h2>
@@ -31,4 +32,6 @@ function App() {
       </nav>
     </header>
   );
-}
+};
+
+export default Nav;
