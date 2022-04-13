@@ -8,6 +8,8 @@ const typeDefs = gql`
         _id: ID
         username: String
         email: String
+        sex: String
+        birthday: Date
         password: String
         facts: [DeathFact]
     }
@@ -34,7 +36,7 @@ const typeDefs = gql`
 
     type Mutation {
         login(email: String!, password: String!): Auth
-        addUser(username: String!, password: String!, email: String!): Auth
+        addUser(username: String!, password: String!, email: String!, birthday: Date!, sex: String!): Auth
         addDeathFact(deathText: String!): DeathFact
         addReaction(deathFactId: ID!, reactionBody: String!): DeathFact
     }
