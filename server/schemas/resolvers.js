@@ -1,4 +1,4 @@
-const { User, Deathfact } = require('../models');
+const { User, DeathFact } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -30,38 +30,41 @@ const resolvers = {
         // get all deathfacts
         deathFacts: async (jared, { username }) => {
             const params = username ? { username } : {};
-            return Deathfact.find(params).sort({ createdAt: -1 });
+
+            return DeathFact.find(params).sort({ createdAt: -1 });
         },
         // get deathfact by id
         deathFact: async (jared, { _id }) => {
-            return Deathfact.findById(_id);
+            return DeathFact.findById(_id);
         }
     },
     Mutation: {
         // add new User
         addUser: async (jared, args) => {
             const user = await User.create(args);
-            // const token = signToken(user);
+            const token = signToken(user);
           
-            return user;
+            return { token, user };
         },
         // add a Deathfact
         addDeathFact: async (jared, args, context) => {
             if (context.user) {
-                const thought = await Deathfact.create({ ...args, username: context.user.username});
+                const deathFact = await DeathFact.create({ ...args, username: context.user.username});
+
                 await User.findByIdAndUpdate(
-                    { _id: context.user.id }, 
-                    { $push: { deathFacts: thought._id } },
+                    { _id: context.user._id }, 
+                    { $push: { deathFacts: deathFact._id } },
                     { new: true }
                 );
-                return thought;
+
+                return deathFact;
             }
             throw new AuthenticationError('You must be logged in, mortal!');
         },
         // add a Reaction
         addReaction: async (jared, { deathFactId, reactionBody }, context) => {
             if (context.user) {
-                const updatedDeathFact = await Deathfact.findOneAndUpdate(
+                const updatedDeathFact = await DeathFact.findOneAndUpdate(
                     { _id: deathFactId },
                     { $push: { reactions: { reactionBody, username: context.user.username } } },
                     { new: true, runValidators: true }
