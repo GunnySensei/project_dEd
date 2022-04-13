@@ -3,15 +3,11 @@ import logo from "../../assets/images/reaper-logo.png";
 
 const Nav = () => {
   return (
-    <header className="flex-row px-1">
-      <h2>
-        <a data-testid="link" href="/">
-          <span role="img" aria-label="Reaper Logo">
-            <img src={logo} alt="cute grim reaper logo"></img>
-          </span>
-        </a>
-      </h2>
-      <nav>
+    <header className="flex-row px-1 nav-container">
+      <div className="logo-container">
+        <img src={logo} alt="cute grim reaper logo" className="logo"></img>
+      </div>
+      <nav className="nav">
         <ul className="flex-row">
           <li className="mx-2">
             <a href="#about">About</a>

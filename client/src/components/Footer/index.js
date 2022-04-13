@@ -6,7 +6,7 @@ import ryanavatar from "../../assets/images/ryanavatar.svg";
 
 const Footer = () => {
   return (
-    <div className="footer-div">
+    <div className="footer-div footer">
       <section className="avatar-container">
         <ul className="avatar-list">
           <a
