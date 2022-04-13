@@ -1,28 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import logo from "../../assets/images/reaper-logo.png";
 
 const Nav = () => {
   return (
     <header className="flex-row px-1 nav-container">
       <div className="logo-container">
-        <img src={logo} alt="cute grim reaper logo" className="logo"></img>
+        <Link to="/">
+          <img src={logo} alt="cute grim reaper logo" className="logo"></img>
+        </Link>
       </div>
       <nav className="nav">
         <ul className="flex-row">
           <li className="mx-2">
-            <a href="#about">About</a>
+            <Link to="/about">About</Link>
           </li>
           <li className="mx-2">
-            <a href="#facts">Death Facts</a>
+            <Link to="/facts">Death Facts</Link>
           </li>
           <li className="mx-2">
-            <a href="#facts">Donate</a>
+            <Link to="/donate">Donate</Link>
           </li>
           <li className="mx-2">
-            <a href="#facts">Login</a>
+            <Link to="/login">Login</Link>
           </li>
           <li className="mx-2">
-            <a href="#facts">Sign Up</a>
+            <Link to="/signup">Sign Up</Link>
           </li>
         </ul>
       </nav>

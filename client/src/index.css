@@ -173,7 +173,7 @@ nav ul {
 }
 
 .logo {
-  height: 75%;
+  max-height: 100px;
 }
 
 nav a:hover {
