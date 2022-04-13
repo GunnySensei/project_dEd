@@ -1,8 +1,8 @@
 let timeLeft = {};
 
 const getTimeLeft = () => {
-  let birthday = new Date(94, 12, 1, 13, 30, 30, 0);
-  let deathDay = new Date(2072, 12, 1, 13, 30, 30, 0);
+  let birthday = new Date(87, 12, 1);
+  let deathDay = new Date(2072, 12, 1);
   let totalLife = deathDay - birthday;
   let timeNow = new Date();
   let secondsLeft = totalLife - timeNow;
