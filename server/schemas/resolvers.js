@@ -41,9 +41,9 @@ const resolvers = {
         // add new User
         addUser: async (jared, args) => {
             const user = await User.create(args);
-            // const token = signToken(user);
+            const token = signToken(user);
           
-            return user;
+            return { token, user };
         },
         // add a Deathfact
         addDeathFact: async (jared, args, context) => {
