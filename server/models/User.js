@@ -21,8 +21,7 @@ const userSchema = new Schema (
             minLength: 3,
         },
         clock: {
-            type: Int,
-            required: true,
+            type: Number
         },
         facts: [
             {

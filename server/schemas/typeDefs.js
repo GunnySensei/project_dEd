@@ -9,7 +9,6 @@ const typeDefs = gql`
         username: String
         email: String
         password: String
-        clock: Int
         facts: [DeathFact]
     }
 
@@ -19,7 +18,7 @@ const typeDefs = gql`
 
     type DeathFact {
         _id: ID
-        deathtext
+        deathtext: String
         createdAt: String
         username: String
         reactionCount: Int
@@ -36,7 +35,7 @@ const typeDefs = gql`
 
     type Mutation {
         login(email: String!, password: String!): Auth
-        addUser(username: String!, email: String!, password: String!): Auth
+        addUser(username: String!, password: String!, email: String!): User
         addDeathFact(deathtext: String!): DeathFact
         addReaction(deathFactId: ID!, reactionBody: String!): DeathFact
     }

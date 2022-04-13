@@ -39,10 +39,11 @@ const resolvers = {
     },
     Mutation: {
         // add new User
-        addUser: async(jared, args) => {
+        addUser: async (jared, args) => {
             const user = await User.create(args);
-            const token = signToken(user);
-            return { token, user };
+            // const token = signToken(user);
+          
+            return user;
         },
         // add a Deathfact
         addDeathFact: async (jared, args, context) => {
@@ -70,16 +71,17 @@ const resolvers = {
             throw new AuthenticationError('You must be logged in, mortal!');
         },
         // login authentication
-        login: async (jared, { email, password }) => {
+        login: async(jared, { email, password }) => {
             const user = await User.findOne({ email });
             if (!user) {
                 throw new AuthenticationError('Invalid credentials');
             }
-            const correctPw = await user.isCorrentPassword(password);
 
-            if (!correctPw) {
+            const correctPw = await user.isCorrectPassword(password);
+            if(!correctPw) {
                 throw new AuthenticationError('Invalid credentials');
             }
+
             const token = signToken(user);
             return { token, user };
         }
