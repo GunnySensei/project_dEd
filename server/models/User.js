@@ -24,7 +24,7 @@ const userSchema = new Schema (
             minLength: 3,
         },
         birthday: {
-            type: Date
+            type: String
         },
         facts: [
             {
