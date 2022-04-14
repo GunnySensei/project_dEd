@@ -9,6 +9,9 @@ const userSchema = new Schema (
             unique: true,
             trim: true,
         },
+        sex: {
+            type: String,
+        },
         email: {
             type: String,
             required: true,
@@ -20,8 +23,8 @@ const userSchema = new Schema (
             required: true,
             minLength: 3,
         },
-        clock: {
-            type: Number
+        birthday: {
+            type: String
         },
         facts: [
             {

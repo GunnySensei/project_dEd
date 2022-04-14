@@ -1,0 +1,19 @@
+{
+    "model": "User",
+    "documents": [
+        {
+            "username": "Biggy",
+            "sex": "male",
+            "email": "biggy@big.com",
+            "password": "12345",
+            "birthday": "09/12/1988"
+        },
+        {
+            "username": "smally",
+            "sex": "female",
+            "email": "smally@big.com",
+            "password": "12345",
+            "birthday": "09/12/1980"
+        }
+    ]
+}
