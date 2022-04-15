@@ -1,16 +1,17 @@
-import { gql } from "apollo/client";
+import { gql } from "@apollo/client";
 
 export const QUERY_ME_BASIC = gql`
-    {
-        me {
-            _id
-            username
-            email
-            deathFacts {
-                _id
-                deathText
-            }
+  {
+    me {
+      _id
+      username
+      email
+      deathFacts {
+        _id
+        deathText
+      }
     }
+  }
 `;
 
 export const QUERY_ME = gql`
