@@ -1,12 +1,35 @@
 let timeLeft = {};
 
-const getTimeLeft = () => {
-  let birthday = new Date(87, 12, 1);
-  let deathDay = new Date(2072, 12, 1);
+//!take birthday from user once logged in
+//parse birthday from user token
+
+// take string from user -> take first 4 digits = year, next 2 digits = month, last 2 digits = day
+let User = {
+  dateString: "2000-09-10",
+};
+
+let dateString = User.dateString;
+let parsedDateString = dateString.split("-");
+const ParsedDateCharacter = {
+  year: parseInt(parsedDateString[0]),
+  month: parseInt(parsedDateString[1]),
+  day: parseInt(parsedDateString[2]),
+};
+
+const getTimeLeft = (ParsedDateCharacter) => {
+  let birthday = new Date(
+    ParsedDateCharacter.year,
+    ParsedDateCharacter.month,
+    ParsedDateCharacter.day
+  );
+  let deathDay = new Date(
+    ParsedDateCharacter.year + 72,
+    ParsedDateCharacter.month,
+    ParsedDateCharacter.day
+  );
   let totalLife = deathDay - birthday;
   let timeNow = new Date();
   let secondsLeft = totalLife - timeNow;
-  console.log(totalLife);
   timeLeft = {
     hoursLeft: Math.floor(secondsLeft / 3600000),
     daysLeft: Math.floor(secondsLeft / 86400000),
@@ -20,6 +43,11 @@ const getTimeLeft = () => {
   //calculate time of death from dob
   //calculate time left from today until death day
 };
-getTimeLeft();
+console.log(
+  ParsedDateCharacter.year,
+  ParsedDateCharacter.month,
+  ParsedDateCharacter.day
+);
+getTimeLeft(ParsedDateCharacter);
 
 module.exports = timeLeft;
