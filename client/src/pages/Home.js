@@ -8,9 +8,9 @@ const Home = () => {
     <>
       <main>
         <div>
-          <Userclock></Userclock>
+          {/* <Userclock></Userclock>
           <Leaderboard></Leaderboard>
-          <Leaderboard></Leaderboard>
+          <Leaderboard></Leaderboard> */}
         </div>
       </main>
     </>
