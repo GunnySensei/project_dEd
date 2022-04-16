@@ -1,13 +1,13 @@
-const { User, DeathFact } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
+const { User, DeathFact } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     // get current User
-    me: async (jared, cheese, context) => {
+    me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({})
+        const userData = await User.findOne({ _id: context.user._id })
           .select("-__v")
           .populate("deathFacts");
 
@@ -20,32 +20,32 @@ const resolvers = {
       return User.find().select("-__v -password").populate("deathFacts");
     },
     // get User by username
-    user: async (jared, { username }) => {
+    user: async (parent, { username }) => {
       return User.findOne({ username })
         .select("-__v -password")
         .populate("deathFacts");
     },
     // get all deathfacts
-    deathFacts: async (jared, { username }) => {
+    deathFacts: async (parent, { username }) => {
       const params = username ? { username } : {};
 
       return DeathFact.find(params).sort({ createdAt: -1 });
     },
     // get deathfact by id
-    deathFact: async (jared, { _id }) => {
+    deathFact: async (parent, { _id }) => {
       return DeathFact.findById(_id);
     },
   },
   Mutation: {
     // add new User
-    addUser: async (jared, args) => {
+    addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
 
       return { token, user };
     },
     // add a Deathfact
-    addDeathFact: async (jared, args, context) => {
+    addDeathFact: async (parent, args, context) => {
       if (context.user) {
         const deathFact = await DeathFact.create({
           ...args,
@@ -63,7 +63,7 @@ const resolvers = {
       throw new AuthenticationError("You must be logged in, mortal!");
     },
     // add a Reaction
-    addReaction: async (jared, { deathFactId, reactionBody }, context) => {
+    addReaction: async (parent, { deathFactId, reactionBody }, context) => {
       if (context.user) {
         const updatedDeathFact = await DeathFact.findOneAndUpdate(
           { _id: deathFactId },
@@ -79,7 +79,7 @@ const resolvers = {
       throw new AuthenticationError("You must be logged in, mortal!");
     },
     // login authentication
-    login: async (jared, { email, password }) => {
+    login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
       if (!user) {
         throw new AuthenticationError("Invalid credentials");
