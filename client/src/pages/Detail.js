@@ -21,7 +21,7 @@ function Detail() {
 
     const { loading, data } = useQuery(QUERY_DONATIONS);
 
-    const { donations, cart } = state;
+    const { donations, checkout } = state;
 
     useEffect(() => {
         if (donations.length) {

@@ -49,14 +49,14 @@ function DonCategoryMenu() {
     return (
         <div>
             <h2>Donation Amount:</h2>
-            {categories.map(item => (
+            {categories.map(price => (
                 <button
-                    key={item._id}
+                    key={price._id}
                     onClick={() => {
-                        handleClick(item._id);
+                        handleClick(price._id);
                     }}
                 >
-                    {item.name}
+                    {price.name}
                 </button>
             ))}
         </div>
