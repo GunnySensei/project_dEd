@@ -1,7 +1,8 @@
 import React from "react";
 
 import Userclock from "../components/Userclock";
-import Leaderboard from "../components/Leaderboard";
+import ClosestLeaderboard from "../components/ClosestLeaderboard";
+import FarthestLeaderboard from "../components/FarthestLeaderboard";
 import { useQuery } from "@apollo/client";
 import { QUERY_USERS } from "../utils/queries";
 
@@ -14,7 +15,8 @@ const Home = () => {
       <main>
         <div>
           <Userclock></Userclock>
-          <Leaderboard users={users} />
+          <ClosestLeaderboard users={users} />
+          <FarthestLeaderboard users={users} />
         </div>
       </main>
     </>
