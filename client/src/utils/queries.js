@@ -22,6 +22,18 @@ export const QUERY_ME = gql`
       email
       birthday
       sex
+      #deathFacts {
+      #_id
+      #deathText
+      #createdAt
+      #reactionCount
+      #reactions {
+      #_id
+      #createdAt
+      #reactionBody
+      #username
+      #}
+      #}
     }
   }
 `;

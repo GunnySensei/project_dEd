@@ -8,6 +8,12 @@ const getTimeLeft = (dateString) => {
     month: parseInt(parsedDateString[1]),
     day: parseInt(parsedDateString[2]),
   };
+  console.log(
+    "incoming date = " +
+      ParsedDateCharacter.year +
+      ParsedDateCharacter.month +
+      ParsedDateCharacter.day
+  );
   let birthday = new Date(
     ParsedDateCharacter.year,
     ParsedDateCharacter.month,
@@ -18,15 +24,17 @@ const getTimeLeft = (dateString) => {
     ParsedDateCharacter.month,
     ParsedDateCharacter.day
   );
+  console.log(deathDay);
+  console.log(birthday);
   let totalLife = deathDay - birthday;
   let timeNow = new Date();
   let secondsLeft = totalLife - timeNow;
   let timeLeft = {
-    hoursLeft: Math.floor(secondsLeft / 3600000),
-    daysLeft: Math.floor(secondsLeft / 86400000),
-    weeksLeft: Math.floor(secondsLeft / 604800000),
-    monthsLeft: Math.floor(secondsLeft / 2629743000),
     yearsLeft: Math.floor(secondsLeft / 31556926000),
+    monthsLeft: Math.floor(secondsLeft / 2629743000),
+    weeksLeft: Math.floor(secondsLeft / 604800000),
+    daysLeft: Math.floor((secondsLeft - secondsLeft / 604800000) / 86400000),
+    hoursLeft: Math.floor(secondsLeft / 3600000),
   };
   return timeLeft;
 
