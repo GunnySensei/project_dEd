@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useMutation } from "@apollo/client";
-import { ADD_DEATHFACT, ADD_THOUGHT } from "../../utils/mutations";
+import { ADD_DEATHFACT } from "../../utils/mutations";
 import { QUERY_DEATHFACTS, QUERY_ME } from "../../utils/queries";
 
 const DeathFactForm = () => {

@@ -106,3 +106,36 @@ export const QUERY_DEATHFACT = gql`
     }
   }
 `;
+
+export const QUERY_DONATIONS = gql`
+  query getDonations($category: ID) {
+    donations(category: $category) {
+      _id
+      name
+      description
+      price
+      quantity
+      image
+      category {
+        _id
+      }
+    }
+  }
+`;
+
+export const QUERY_D_CAT = gql`
+  {
+    categories {
+      _id
+      price
+    }
+  }
+`;
+
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($donations: [ID]!) {
+    checkout(donations: $donations) {
+      session
+    }
+  }
+`;
