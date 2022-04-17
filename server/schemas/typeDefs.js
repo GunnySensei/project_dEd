@@ -51,7 +51,6 @@ const typeDefs = gql`
         addUser(username: String!, password: String!, email: String!, birthday: String!, sex: String!): Auth
         addDeathFact(deathText: String!): DeathFact
         addReaction(deathFactId: ID!, reactionBody: String!): DeathFact
-        updateDonation(_id: ID!, price: Float): Donation
     }
 
     type Checkout {

@@ -36,7 +36,68 @@ const resolvers = {
         // get deathfact by id
         deathFact: async (jared, { _id }) => {
             return DeathFact.findById(_id);
-        }
+        },
+        // get all categories
+        categories: async () => {
+            return await Category.find();
+        },
+        // get all donations
+        donations: async (jared, { category, name }) => {
+            const params = {};
+      
+            if (category) {
+              params.category = category;
+            }
+      
+            if (name) {
+              params.name = {
+                $regex: name
+              };
+            }
+      
+            return await Donation.find(params).populate('category');
+        },
+        // get donation by id
+        donation: async (jared, { _id }) => {
+            return await Donation.findById(_id).populate('category');
+        },
+        checkout: async (jared, args, context) => {
+            const url = new URL(context.headers.referer).origin;
+            const order = new Order({ donations: args.donations });
+            const { donations } = await order.populate('donations').execPopulate();
+      
+            const line_items = [];
+      
+            for (let i = 0; i < donations.length; i++) {
+              const donation = await stripe.donations.create({
+                name: donations[i].name,
+                description: donations[i].description,
+                images: [`${url}/images/${donations[i].image}`]
+              });
+            
+              const price = await stripe.prices.create({
+                donation: donation.id,
+                unit_amount: donations[i].price * 100,
+                currency: 'usd',
+              });
+            
+              line_items.push({
+                price: price.id,
+                quantity: 1
+              });
+            }
+      
+            const session = await stripe.checkout.sessions.create({
+              payment_method_types: ['card'],
+              line_items,
+              mode: 'payment',
+              success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+              cancel_url: `${url}`
+            });
+            
+            return { session: session.id };
+          }
+
     },
     Mutation: {
         // add new User
