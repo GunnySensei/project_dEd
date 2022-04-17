@@ -1,14 +1,15 @@
 import React from "react";
+import DonationList from "../components/DonationList";
+import DonCatMenu from "../components/DonCatMenu";
+import Checkout from "../components/Checkout";
 
 const Donate = () => {
   return (
-    <>
-      <main>
-        <div>
-          <p>Donate</p>
-        </div>
-      </main>
-    </>
+    <div className="container">
+      <DonCatMenu />
+      <DonationList />
+      <Checkout />
+    </div>
   );
 };
 

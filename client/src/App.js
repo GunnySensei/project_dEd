@@ -11,6 +11,8 @@ import { setContext } from "@apollo/client/link/context";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
+import { StoreProvider } from "./utils/GlobalState";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Donate from "./pages/Donate";
@@ -43,19 +45,21 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Nav></Nav>
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/About" component={About} />
-              <Route exact path="/Donate" component={Donate} />
-              <Route exact path="/Facts" component={Facts} />
-              <Route exact path="/Login" component={Login} />
-              <Route exact path="/Signup" component={Signup} />
+          <StoreProvider>
+            <Nav />
+              <div className="container">
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/About" component={About} />
+                  <Route exact path="/Donate" component={Donate} />
+                  <Route exact path="/Facts" component={Facts} />
+                  <Route exact path="/Login" component={Login} />
+                  <Route exact path="/Signup" component={Signup} />
 
-              <Route component={NotFound} />
-            </Switch>
-          </div>
+                  <Route component={NotFound} />
+                </Switch>
+              </div>
+          </StoreProvider>
           <Footer></Footer>
         </div>
       </Router>
