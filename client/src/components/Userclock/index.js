@@ -1,27 +1,27 @@
 import React from "react";
 
 import Auth from "../../utils/auth";
-import { useQuery } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 
 import getTimeLeft from "../../utils/formatTime";
 
 const Userclock = () => {
-  const { loading, data } = useQuery(QUERY_ME);
-  const { data: userData } = useQuery(QUERY_ME);
-  const birthday = data?.birthday || "";
-  const username = data?.username || "";
+  const { loading, error, data } = useQuery(QUERY_ME);
 
-  const loggedIn = Auth.loggedIn();
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
 
-  console.log(userData);
+  const birthday = data.me.birthday || "";
+  const username = data.me.username || "";
+
+  console.log(data.me.birthday);
 
   let dateString = birthday;
   let timeLeft = getTimeLeft(dateString);
 
   return (
     <div className="userclock-container">
-      {/* {loggedIn( */}
       <div className="user-info-container">
         <h1 className="username-h1">{username}</h1>
         <h2 className="user-time-counter">
@@ -30,7 +30,6 @@ const Userclock = () => {
           {timeLeft.yearsLeft} years left.
         </h2>
       </div>
-      // )}
     </div>
   );
 };
