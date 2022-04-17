@@ -3,6 +3,18 @@ const { gql } = require('apollo-server-express');
 
 // TypeDefs tagged template function.
 const typeDefs = gql`
+    type Category {
+        _id: ID
+        price: Float
+    }
+
+    type Donation {
+        _id: ID
+        name: String
+        description: String
+        image: String
+        category: Category
+    }
 
     type User {
         _id: ID
@@ -39,6 +51,11 @@ const typeDefs = gql`
         addUser(username: String!, password: String!, email: String!, birthday: String!, sex: String!): Auth
         addDeathFact(deathText: String!): DeathFact
         addReaction(deathFactId: ID!, reactionBody: String!): DeathFact
+        updateDonation(_id: ID!, price: Float): Donation
+    }
+
+    type Checkout {
+        session: ID
     }
     
     type Auth {
