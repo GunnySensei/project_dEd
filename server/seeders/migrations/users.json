@@ -1,6 +1,6 @@
 {
-    "model": "User",
-    "documents": [
+    "data": {
+        "users": [
         {
             "username": "Biggy",
             "sex": "male",
@@ -16,4 +16,6 @@
             "birthday": "09/12/1980"
         }
     ]
+    }
+    
 }

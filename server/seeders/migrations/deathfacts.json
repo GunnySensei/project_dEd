@@ -1,6 +1,6 @@
 {
-    "model": "DeathFact",
-    "documents": [
+    "data": {
+        "deathfact": [
         {
             "deathText": "Everybody dies even you pussy!",
             "username": "Biggy"
@@ -10,4 +10,6 @@
             "username": "smally"
         }
     ]
+    }
+
 }
