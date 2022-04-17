@@ -1,36 +1,29 @@
 import React from "react";
 
-import Auth from "../../utils/auth";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 
 import getTimeLeft from "../../utils/formatTime";
 
 const Userclock = () => {
-  const { loading, data } = useQuery(QUERY_ME);
-  const { data: userData } = useQuery(QUERY_ME);
-  const birthday = data?.birthday || "";
-  const username = data?.username || "";
+  const { loading, error, data } = useQuery(QUERY_ME);
 
-  const loggedIn = Auth.loggedIn();
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
 
-  console.log(userData);
-
-  let dateString = birthday;
+  let dateString = data.me.birthday;
   let timeLeft = getTimeLeft(dateString);
 
   return (
     <div className="userclock-container">
-      {/* {loggedIn( */}
       <div className="user-info-container">
-        <h1 className="username-h1">{username}</h1>
+        <h1 className="username-h1">{data.me.username}</h1>
         <h2 className="user-time-counter">
           You have {timeLeft.hoursLeft} hours, {timeLeft.daysLeft} days,{" "}
           {timeLeft.weeksLeft} weeks, {timeLeft.monthsLeft} months, and{" "}
           {timeLeft.yearsLeft} years left.
         </h2>
       </div>
-      // )}
     </div>
   );
 };
