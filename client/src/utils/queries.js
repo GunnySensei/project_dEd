@@ -56,6 +56,18 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_USERS = gql`
+  query Query {
+    users {
+      _id
+      username
+      email
+      sex
+      birthday
+    }
+  }
+`;
+
 export const QUERY_DEATHFACTS = gql`
   query deathFacts($username: String) {
     deathFacts(username: $username) {
