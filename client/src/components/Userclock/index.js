@@ -1,9 +1,22 @@
 import React from "react";
-const username = "placeholder";
 
-const timeLeft = require("../../utils/formatTime");
+import { useQuery } from "@apollo/client";
+import { QUERY_ME } from "../../utils/queries";
+
+import getTimeLeft from "../../utils/formatTime";
 
 const Userclock = () => {
+  const { loading, error, data } = useQuery(QUERY_ME);
+
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
+
+  const birthday = data.me.birthday || "";
+  const username = data.me.username || "";
+
+  let dateString = birthday;
+  let timeLeft = getTimeLeft(dateString);
+
   return (
     <div className="userclock-container">
       <div className="user-info-container">

@@ -66,7 +66,7 @@ h4 {
 }
 
 h5 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 
 h6 {
@@ -184,7 +184,7 @@ nav li {
   cursor: pointer;
 }
 
-/* nv styles end */
+/* nav styles end */
 
 /* footer styles start */
 
@@ -222,6 +222,14 @@ nav li {
 }
 
 /* footer styles end */
+
+/* sign up styles start */
+
+.form-header {
+  font-size: small;
+}
+
+/* sign up styles end */
 
 textarea {
   width: 600px;

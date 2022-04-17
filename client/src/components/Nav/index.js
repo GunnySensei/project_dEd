@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Auth from "../../utils/auth";
 import logo from "../../assets/images/reaper-logo.png";
 
 const Nav = () => {
@@ -22,12 +23,22 @@ const Nav = () => {
           <li className="mx-2">
             <Link to="/donate">Donate</Link>
           </li>
-          <li className="mx-2">
-            <Link to="/login">Login</Link>
-          </li>
-          <li className="mx-2">
-            <Link to="/signup">Sign Up</Link>
-          </li>
+          {Auth.loggedIn() ? (
+            <>
+              <li className="mx-2">
+                <Link onClick={Auth.logout}>Logout</Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="mx-2">
+                <Link to="/login">Login</Link>
+              </li>
+              <li className="mx-2">
+                <Link to="/signup">Sign Up</Link>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </header>

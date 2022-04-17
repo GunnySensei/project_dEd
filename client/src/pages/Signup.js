@@ -9,6 +9,8 @@ const Signup = () => {
     username: "",
     email: "",
     password: "",
+    birthday: "",
+    sex: "",
   });
   const [addUser, { error }] = useMutation(ADD_USER);
 
@@ -40,7 +42,7 @@ const Signup = () => {
   return (
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-md-6">
-        <div className="card">
+        <div className="signup-card">
           <h4 className="card-header">Sign Up</h4>
           <div className="card-body">
             <form onSubmit={handleFormSubmit}>
@@ -71,6 +73,44 @@ const Signup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
+              <br></br>
+              <br></br>
+              <h5>Sex at Birth</h5>
+              <input
+                className="form-input"
+                name="sex"
+                type="radio"
+                id="sex"
+                value="Male"
+                onChange={handleChange}
+              />
+              <label htmlFor="Male" className="form-header">
+                Male
+              </label>
+              <input
+                className="form-input"
+                name="sex"
+                type="radio"
+                id="sex"
+                value="Female"
+                onChange={handleChange}
+              />
+              <label htmlFor="Female" className="form-header">
+                Female
+              </label>
+              <br></br>
+              <br></br>
+              <h5>Date of Birth</h5>
+              <input
+                className="form-input"
+                name="birthday"
+                type="date"
+                id="birthday"
+                value={formState.birthday}
+                onChange={handleChange}
+              />
+              <br></br>
+              <br></br>
               <button className="btn d-block w-100" type="submit">
                 Submit
               </button>
