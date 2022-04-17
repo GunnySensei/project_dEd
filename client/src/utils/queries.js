@@ -90,3 +90,20 @@ export const QUERY_DEATHFACT = gql`
         }
     }
 `;
+
+export const QUERY_D_CAT = gql`
+    {
+        categories {
+            _id
+            price
+        }
+    }
+`;
+
+export const QUERY_CHECKOUT = gql`
+    query getCheckout($donations: [ID]!) {
+        checkout(donations: $donations) {
+            session 
+        }
+    }
+`;
