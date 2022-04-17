@@ -1,7 +1,6 @@
 import React from "react";
 
-import Auth from "../../utils/auth";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 
 import getTimeLeft from "../../utils/formatTime";
@@ -14,8 +13,6 @@ const Userclock = () => {
 
   const birthday = data.me.birthday || "";
   const username = data.me.username || "";
-
-  console.log(data.me.birthday);
 
   let dateString = birthday;
   let timeLeft = getTimeLeft(dateString);

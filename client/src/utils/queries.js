@@ -44,20 +44,35 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_USERS = gql`
+  query Query {
+    users {
+      _id
+      username
+      email
+      sex
+      birthday
+      password
+      facts {
+        _id
+        deathText
+        createdAt
+        username
+        reactions {
+          _id
+        }
+      }
+    }
+  }
+`;
+
 export const QUERY_DEATHFACTS = gql`
-  query deathFacts($username: String) {
-    deathFacts(username: $username) {
+  query Query {
+    deathFacts {
       _id
       deathText
       createdAt
       username
-      reactionCount
-      reaction {
-        _id
-        createdAt
-        username
-        reactionBody
-      }
     }
   }
 `;

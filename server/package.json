@@ -1,6 +1,5 @@
 {
   "name": "mern-server",
-  "proxy": "http://localhost:3001",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
