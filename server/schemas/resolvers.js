@@ -1,4 +1,4 @@
-const { User, DeathFact } = require('../models');
+const { User, DeathFact, Donation } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -37,16 +37,12 @@ const resolvers = {
         deathFact: async (jared, { _id }) => {
             return DeathFact.findById(_id);
         },
-        // get all categories
-        categories: async () => {
-            return await Category.find();
-        },
         // get all donations
-        donations: async (jared, { category, name }) => {
+        donations: async (jared, { price, name }) => {
             const params = {};
       
-            if (category) {
-              params.category = category;
+            if (price) {
+              params.price = price;
             }
       
             if (name) {
@@ -55,11 +51,11 @@ const resolvers = {
               };
             }
       
-            return await Donation.find(params).populate('category');
+            return await Donation.find(params).populate('price');
         },
         // get donation by id
         donation: async (jared, { _id }) => {
-            return await Donation.findById(_id).populate('category');
+            return await Donation.findById(_id).populate('price');
         },
         checkout: async (jared, args, context) => {
             const url = new URL(context.headers.referer).origin;

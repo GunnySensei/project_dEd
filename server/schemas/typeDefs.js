@@ -3,17 +3,14 @@ const { gql } = require('apollo-server-express');
 
 // TypeDefs tagged template function.
 const typeDefs = gql`
-    type Category {
-        _id: ID
-        price: Float
-    }
+    
 
     type Donation {
         _id: ID
         name: String
         description: String
         image: String
-        category: Category
+        price: Float
     }
 
     type User {
@@ -44,6 +41,9 @@ const typeDefs = gql`
         user(username: String!): User
         deathFacts(username: String!): [DeathFact]
         deathFact(_id: ID!): DeathFact
+        donations: [Donation]
+        donation(_id: ID!): Donation
+        checkout(donations: [ID]!): Checkout
     }
 
     type Mutation {

@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from '../../utils/GlobalState';
 
-function ProductItem(item) {
-  // Similar to the TOGGLE_CART logic, you'll need to define a state variable and dispatch() function.
+function DonationItem(item) {
   const [state] = useStoreContext();
   
   const {
@@ -35,4 +33,4 @@ function ProductItem(item) {
   );
 }
 
-export default ProductItem;
+export default DonationItem;

@@ -14,10 +14,10 @@ const donationSchema = new Schema({
   image: {
     type: String
   },
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
-    required: true
+  price: {
+    type: Number,
+    required: true,
+    min: 0.99
   }
 });
 
