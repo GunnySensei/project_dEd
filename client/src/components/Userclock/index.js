@@ -13,9 +13,10 @@ const Userclock = () => {
 
   const birthday = data.me.birthday || "";
   const username = data.me.username || "";
+  const sex = data.me.sex || "";
 
   let dateString = birthday;
-  let timeLeft = getTimeLeft(dateString);
+  let timeLeft = getTimeLeft(dateString, sex);
 
   return (
     <div className="userclock-container">

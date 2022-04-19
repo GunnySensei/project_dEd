@@ -15,10 +15,10 @@ const ClosestLeaderboard = ({ users }) => {
             <div key={user._id} className="leaderboard-users">
               <h3 className="user-name">{user.username}</h3>
               <p className="user-birthday">
-                {getTimeLeft(user.birthday).yearsLeft} years ,{" "}
-                {getTimeLeft(user.birthday).monthsLeft} months ,{" "}
-                {getTimeLeft(user.birthday).weeksLeft} weeks , and{" "}
-                {getTimeLeft(user.birthday).daysLeft} days left.
+                {getTimeLeft(user.birthday, user.sex).yearsLeft} years ,{" "}
+                {getTimeLeft(user.birthday, user.sex).monthsLeft} months ,{" "}
+                {getTimeLeft(user.birthday, user.sex).weeksLeft} weeks , and{" "}
+                {getTimeLeft(user.birthday, user.sex).daysLeft} days left.
               </p>
             </div>
           ))}

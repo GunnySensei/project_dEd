@@ -1,11 +1,17 @@
-//!take birthday from user once logged in
-//parse birthday from user token
-
-const getTimeLeft = (dateString) => {
+const getTimeLeft = (dateString, sex) => {
   let yearsLeft = 0;
   let monthsLeft = 0;
   let weeksLeft = 0;
   let daysLeft = 0;
+  let lifeSpan = 0;
+  let posOrNegative = Math.round(Math.random()) * 2 - 1;
+  let maxVariation = 9;
+
+  if (sex === "male" || sex === "Male") {
+    lifeSpan = 72;
+  } else if (sex === "female" || sex === "Female") {
+    lifeSpan = 78;
+  } else lifeSpan = 1000;
 
   let parsedDateString = dateString.split("-");
   const ParsedDateCharacter = {
@@ -20,7 +26,8 @@ const getTimeLeft = (dateString) => {
   );
   let numericBirthday = birthday.getTime();
   let deathDay = new Date(
-    ParsedDateCharacter.year + 72,
+    ParsedDateCharacter.year +
+      (Math.floor(Math.random(maxVariation * posOrNegative)) + lifeSpan),
     ParsedDateCharacter.month,
     ParsedDateCharacter.day
   );
@@ -30,7 +37,6 @@ const getTimeLeft = (dateString) => {
   let timeNow = new Date();
   let numericTimeNow = timeNow.getTime();
   let secondsLeft = numericDeathday - numericTimeNow;
-  console.log("this person has " + secondsLeft + " seconds left");
 
   const calcFinalTime = (secondsLeft) => {
     //calculate years left with remainder
