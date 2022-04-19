@@ -20,12 +20,13 @@ const Userclock = () => {
   return (
     <div className="userclock-container">
       <div className="user-info-container">
-        <h1 className="username-h1">{username}</h1>
-        <h2 className="user-time-counter">
-          You have {timeLeft.hoursLeft} hours, {timeLeft.daysLeft} days,{" "}
-          {timeLeft.weeksLeft} weeks, {timeLeft.monthsLeft} months, and{" "}
-          {timeLeft.yearsLeft} years left.
-        </h2>
+        <h1 className="username-h1">{username}'s time remaining:</h1>
+        <div className="user-time-counter-container">
+          <h3 className="year-count">{timeLeft.yearsLeft} year(s),</h3>
+          <h3 className="month-count">{timeLeft.monthsLeft} month(s),</h3>
+          <h3 className="week-count">{timeLeft.weeksLeft} week(s),</h3>
+          <h3 className="day-count"> {timeLeft.daysLeft} day(s)</h3>
+        </div>
       </div>
     </div>
   );
