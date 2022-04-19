@@ -14,9 +14,9 @@ const resolvers = {
             return DeathFact.find(params).sort({ createdAt: -1 });
       }
     },
-    categories: async () => {
-      return await Category.find();
-    },
+    // categories: async () => {
+    //   return await Category.find();
+    // },
     // get deathfact by id
     deathFact: async (jared, { _id }) => {
       return DeathFact.findById(_id);
@@ -37,16 +37,16 @@ const resolvers = {
       
       return await Donation.find(params).populate('price');
     },
-    order: async (jared, { _id }, context) => {
-      if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.donations',
-          populate: 'category'
-        });
+    // order: async (jared, { _id }, context) => {
+    //   if (context.user) {
+    //     const user = await User.findById(context.user._id).populate({
+    //       path: 'orders.donations',
+    //       populate: 'category'
+    //     });
         
-        return user.orders.id(_id);
-      }
-    },
+    //     return user.orders.id(_id);
+    //   }
+    // },
     // get donation by id
     donation: async (jared, { _id }) => {
       return await Donation.findById(_id).populate('price');

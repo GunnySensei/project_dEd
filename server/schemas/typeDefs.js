@@ -3,21 +3,25 @@ const { gql } = require("apollo-server-express");
 
 // TypeDefs tagged template function.
 const typeDefs = gql`
+  type Category {
+    _id: ID
+    name: String
+  }
 
-    type User {
-        _id: ID!
-        username: String!
-        email: String!
-        password: String!
-    }
+  type User {
+    _id: ID!
+    username: String!
+    email: String!
+    password: String!
+  }
 
-    type Donation {
-        _id: ID
-        name: String
-        description: String
-        image: String
-        price: Float
-    }
+  type Donation {
+    _id: ID
+    name: String
+    description: String
+    image: String
+    price: Float
+  }
 
   type Reaction {
     _id: ID
@@ -35,6 +39,7 @@ const typeDefs = gql`
       me: User
       users: [User]
       user(username: String!): User
+      categories: [Category]
       deathFacts(username: String!): [DeathFact]
       deathFact(_id: ID!): DeathFact
       donations: [Donation]
