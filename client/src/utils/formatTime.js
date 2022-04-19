@@ -4,6 +4,8 @@ const getTimeLeft = (dateString, sex) => {
   let weeksLeft = 0;
   let daysLeft = 0;
   let lifeSpan = 0;
+
+  //variables for randomizer
   let posOrNegative = Math.round(Math.random()) * 2 - 1;
   let maxVariation = 9;
 
