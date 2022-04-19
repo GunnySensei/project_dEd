@@ -1,4 +1,4 @@
-const { User, DeathFact, Donation, Order } = require('../models');
+const { User, DeathFact, Donation, Order, Category } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -12,68 +12,80 @@ const resolvers = {
           .populate("deathFacts");
 
             return DeathFact.find(params).sort({ createdAt: -1 });
-      },
-        // get deathfact by id
-        deathFact: async (jared, { _id }) => {
-            return DeathFact.findById(_id);
-        },
-        // get all donations
-        donations: async (jared, { price, name }) => {
-            const params = {};
+      }
+    },
+    categories: async () => {
+      return await Category.find();
+    },
+    // get deathfact by id
+    deathFact: async (jared, { _id }) => {
+      return DeathFact.findById(_id);
+    },
+    // get all donations
+    donations: async (jared, { category, name }) => {
+      const params = {};
       
-            if (price) {
-              params.price = price;
-            }
+      if (category) {
+        params.category = category;
+      }
       
-            if (name) {
-              params.name = {
-                $regex: name
-              };
-            }
+      if (name) {
+        params.name = {
+          $regex: name
+        };
+      }
       
-            return await Donation.find(params).populate('price');
-        },
-        // get donation by id
-        donation: async (jared, { _id }) => {
-            return await Donation.findById(_id).populate('price');
-        },
-        checkout: async (jared, args, context) => {
-            const url = new URL(context.headers.referer).origin;
-            const order = new Order({ donations: args.donations });
-            const { donations } = await order.populate('donations').execPopulate();
+      return await Donation.find(params).populate('price');
+    },
+    order: async (jared, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: 'orders.donations',
+          populate: 'category'
+        });
+        
+        return user.orders.id(_id);
+      }
+    },
+    // get donation by id
+    donation: async (jared, { _id }) => {
+      return await Donation.findById(_id).populate('price');
+    },
+    checkout: async (jared, args, context) => {
+      const url = new URL(context.headers.referer).origin;
+      const order = new Order({ donations: args.donations });
+      const { donations } = await order.populate('donations').execPopulate();
       
-            const line_items = [];
+      const line_items = [];
       
-            for (let i = 0; i < donations.length; i++) {
-              const donation = await stripe.donations.create({
-                name: donations[i].name,
-                description: donations[i].description,
-                images: [`${url}/images/${donations[i].image}`]
-              });
+      for (let i = 0; i < donations.length; i++) {
+        const donation = await stripe.donations.create({
+          name: donations[i].name,
+          description: donations[i].description,
+          images: [`${url}/images/${donations[i].image}`]
+        });
             
-              const price = await stripe.prices.create({
-                donation: donation.id,
-                unit_amount: donations[i].price * 100,
-                currency: 'usd',
-              });
+        const price = await stripe.prices.create({
+          donation: donation.id,
+          unit_amount: donations[i].price * 100,
+          currency: 'usd',
+        });
             
-              line_items.push({
-                price: price.id,
-                quantity: 1
-              });
-            }
+        line_items.push({
+          price: price.id,
+          quantity: 1
+        });
+      }
       
-            const session = await stripe.checkout.sessions.create({
-              payment_method_types: ['card'],
-              line_items,
-              mode: 'payment',
-              success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-              cancel_url: `${url}`
-            });
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items,
+        mode: 'payment',
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}`
+      });
             
-            return { session: session.id };
-          }
-
+      return { session: session.id };
     },
     // get all users
     users: async () => {
