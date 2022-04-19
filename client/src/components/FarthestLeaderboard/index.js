@@ -6,6 +6,11 @@ const FarthestLeaderboard = ({ users }) => {
     return <h3>No users yet</h3>;
   }
 
+  let sortedArray = [...users];
+
+  for (let i = 0; i <= users.length; i++) {
+    users = sortedArray.sort(sortedArray.birthday);
+  }
   return (
     <>
       <h1 className="leaderboardHeader">Farthest Leaderboard</h1>

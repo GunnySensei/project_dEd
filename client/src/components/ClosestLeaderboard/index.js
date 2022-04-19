@@ -6,6 +6,19 @@ const ClosestLeaderboard = ({ users }) => {
     return <h3>No users yet</h3>;
   }
 
+  // let sortedArray = [...users];
+
+  // for (let i = 0; i <= users.length; i++) {
+  //   users = sortedArray.sort(sortedArray.birthday);
+  // }
+
+  // let sortedUsers = [...users];
+  // console.log("sorted users = " + sortedUsers);
+  // for (let i = 0; i <= users.length; i++) {
+  //   users = sortedUsers.reverse();
+  //   console.log(users + "reversed");
+  // }
+
   return (
     <>
       <h1 className="leaderboardHeader">Closest Leaderboard</h1>
