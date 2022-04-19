@@ -4,11 +4,16 @@ const { gql } = require("apollo-server-express");
 // TypeDefs tagged template function.
 const typeDefs = gql`
 
+    type Category {
+        _id: ID
+        name: String
+    }
+
     type User {
-        _id: ID!
-        username: String!
-        email: String!
-        password: String!
+        _id: ID
+        username: String
+        email: String
+        password: String
     }
 
     type Donation {
@@ -17,36 +22,46 @@ const typeDefs = gql`
         description: String
         image: String
         price: Float
+        category: Category
     }
 
-  type Reaction {
-    _id: ID
-  }
+    type Order {
+        _id: ID
+        purchaseDate: String
+        products: [Product]
+    }
 
-  type DeathFact {
-    _id: ID
-    deathText: String
-    createdAt: String
-    username: String
-    reactions: [Reaction]
-  }
+    type Reaction {
+        _id: ID
+    }
 
-  type Query {
-      me: User
-      users: [User]
-      user(username: String!): User
-      deathFacts(username: String!): [DeathFact]
-      deathFact(_id: ID!): DeathFact
-      donations: [Donation]
-      donation(_id: ID!): Donation
-      checkout(donations: [ID]!): Checkout
-  }
+    type DeathFact {
+        _id: ID
+        deathText: String
+        createdAt: String
+        username: String
+        reactions: [Reaction]
+    }
+
+    type Query {
+        me: User
+        users: [User]
+        user(username: String!): User
+        deathFacts(username: String!): [DeathFact]
+        deathFact(_id: ID!): DeathFact
+        donations: [Donation]
+        donation(_id: ID!): Donation
+        categories: [Category]
+        order(_id: ID!): Order
+        checkout(donations: [ID]!): Checkout
+    }
 
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, password: String!, email: String!, birthday: String!, sex: String!): Auth
         addDeathFact(deathText: String!): DeathFact
         addReaction(deathFactId: ID!, reactionBody: String!): DeathFact
+        addOrder(donations: [ID]!): Order
     }
 
     type Checkout {
