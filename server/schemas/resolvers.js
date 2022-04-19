@@ -1,6 +1,6 @@
-const { AuthenticationError } = require("apollo-server-express");
-const { User, DeathFact } = require("../models");
-const { signToken } = require("../utils/auth");
+const { User, DeathFact, Donation, Order } = require('../models');
+const { AuthenticationError } = require('apollo-server-express');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -11,9 +11,69 @@ const resolvers = {
           .select("-__v")
           .populate("deathFacts");
 
-        return userData;
-      }
-      throw new AuthenticationError("You must be logged in, mortal!");
+            return DeathFact.find(params).sort({ createdAt: -1 });
+      },
+        // get deathfact by id
+        deathFact: async (jared, { _id }) => {
+            return DeathFact.findById(_id);
+        },
+        // get all donations
+        donations: async (jared, { price, name }) => {
+            const params = {};
+      
+            if (price) {
+              params.price = price;
+            }
+      
+            if (name) {
+              params.name = {
+                $regex: name
+              };
+            }
+      
+            return await Donation.find(params).populate('price');
+        },
+        // get donation by id
+        donation: async (jared, { _id }) => {
+            return await Donation.findById(_id).populate('price');
+        },
+        checkout: async (jared, args, context) => {
+            const url = new URL(context.headers.referer).origin;
+            const order = new Order({ donations: args.donations });
+            const { donations } = await order.populate('donations').execPopulate();
+      
+            const line_items = [];
+      
+            for (let i = 0; i < donations.length; i++) {
+              const donation = await stripe.donations.create({
+                name: donations[i].name,
+                description: donations[i].description,
+                images: [`${url}/images/${donations[i].image}`]
+              });
+            
+              const price = await stripe.prices.create({
+                donation: donation.id,
+                unit_amount: donations[i].price * 100,
+                currency: 'usd',
+              });
+            
+              line_items.push({
+                price: price.id,
+                quantity: 1
+              });
+            }
+      
+            const session = await stripe.checkout.sessions.create({
+              payment_method_types: ['card'],
+              line_items,
+              mode: 'payment',
+              success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+              cancel_url: `${url}`
+            });
+            
+            return { session: session.id };
+          }
+
     },
     // get all users
     users: async () => {

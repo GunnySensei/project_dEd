@@ -13,7 +13,7 @@ import spinner from '../../assets/spinner.gif';
 function DonationList() {
     const [state, dispatch] = useStoreContext();
 
-    const { currentCategory } = state;
+    const { currentPrice } = state;
 
     const { loading, data } = useQuery(QUERY_DONATIONS);
 
@@ -39,11 +39,11 @@ function DonationList() {
     }, [data, loading, dispatch]);
 
     function filterDonations() {
-        if (!currentCategory) {
+        if (!currentPrice) {
             return state.donations;
         }
 
-        return state.donations.filter(donation => donation.category._id === currentCategory);
+        return state.donations.filter(donation => donation.price._id === currentPrice);
     }
 
     return (
@@ -58,12 +58,11 @@ function DonationList() {
                             image={donation.image}
                             name={donation.name}
                             price={donation.price}
-                            quantity={donation.quantity}
                         />
                     ))}
                 </div>
             ) : (
-                <h3>You haven't selected a donation yet, silly-billy!</h3>
+                <h3>Work in Progress!</h3>
             )}
             {loading ? <img src={spinner} alt="loading" /> : null}
         </div>

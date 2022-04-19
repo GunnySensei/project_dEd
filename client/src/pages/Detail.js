@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import Checkout from '../components/Checkout';
 import { useStoreContext } from "../utils/GlobalState";
 import { QUERY_DONATIONS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
@@ -21,7 +20,7 @@ function Detail() {
 
     const { loading, data } = useQuery(QUERY_DONATIONS);
 
-    const { donations, cart } = state;
+    const { donations } = state;
 
     useEffect(() => {
         if (donations.length) {
@@ -66,7 +65,6 @@ function Detail() {
                 src={`/images/${currentDonation.image}`}
                 alt={currentDonation.name}
             />
-            <Checkout />
             </div>
         ) : null}
         {loading ? <img src={spinner} alt="loading" /> : null}
