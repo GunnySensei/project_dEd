@@ -3,7 +3,13 @@ const { gql } = require("apollo-server-express");
 
 // TypeDefs tagged template function.
 const typeDefs = gql`
-    
+
+    type User {
+        _id: ID!
+        username: String!
+        email: String!
+        password: String!
+    }
 
     type Donation {
         _id: ID
@@ -26,23 +32,15 @@ const typeDefs = gql`
   }
 
   type Query {
-    me: User
-    users: [User]
-    user(username: String!): User
-    deathFacts: [DeathFact]
-    deathFact(_id: ID!): DeathFact
+      me: User
+      users: [User]
+      user(username: String!): User
+      deathFacts(username: String!): [DeathFact]
+      deathFact(_id: ID!): DeathFact
+      donations: [Donation]
+      donation(_id: ID!): Donation
+      checkout(donations: [ID]!): Checkout
   }
-
-    type Query {
-        me: User
-        users: [User]
-        user(username: String!): User
-        deathFacts(username: String!): [DeathFact]
-        deathFact(_id: ID!): DeathFact
-        donations: [Donation]
-        donation(_id: ID!): Donation
-        checkout(donations: [ID]!): Checkout
-    }
 
     type Mutation {
         login(email: String!, password: String!): Auth
