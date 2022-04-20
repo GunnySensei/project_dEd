@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import { useQuery, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { ADD_DEATHFACT } from "../../utils/mutations";
-import { QUERY_DEATHFACTS, QUERY_ME } from "../../utils/queries";
+import { QUERY_DEATHFACTS } from "../../utils/queries";
 
 const DeathFactForm = () => {
   const [deathText, setText] = useState("");
@@ -21,13 +21,6 @@ const DeathFactForm = () => {
       } catch (e) {
         console.error(e);
       }
-
-      // update me object's cache
-      // const { me } = cache.readQuery({ query: QUERY_ME });
-      // cache.writeQuery({
-      //   query: QUERY_ME,
-      //   data: { me: { ...me, deathFacts: [...me.deathFacts, addDeathFact] } },
-      // });
     },
   });
 

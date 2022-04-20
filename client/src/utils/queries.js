@@ -8,10 +8,10 @@ export const QUERY_ME_BASIC = gql`
       email
       birthday
       sex
-      #deathFacts {
-          #_id
-          #deathText
-      #}
+      deathFacts {
+          _id
+          deathText
+      }
     }
   }
 `;
