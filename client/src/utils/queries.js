@@ -5,8 +5,7 @@ export const QUERY_ME_BASIC = gql`
     me {
       _id
       username
-      email
-      birthday
+      email 
       sex
       deathFacts {
           _id
@@ -22,18 +21,18 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      birthday
       sex
+      birthday
       deathFacts {
         _id
         deathText
         createdAt
-        reactions {
-          _id
-          createdAt
-          reactionBody
-          username
-        }
+        #reactions {
+          #_id
+          #createdAt
+          #reactionBody
+          #username
+        #}
       }
     }
   }
@@ -45,16 +44,13 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      birthday
       sex
+      birthday
       deathFacts {
         _id
         deathText
         createdAt
-        username
-        reactions {
-          _id
-        }
+        reactionsCount
       }
     }
   }
@@ -83,30 +79,25 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_DEATHFACTS = gql`
-  query deathFacts($username: String) {
-    deathFacts(username: $username) {
+  query Query {
+    deathFacts {
       _id
       deathText
       createdAt
       username
-      reactions {
-        _id
-        createdAt
-        username
-        reactionBody
-      }
     }
   }
 `;
 
 export const QUERY_DEATHFACT = gql`
-  query deathFact($id: ID!) {
-    deathFact(_id: $id) {
+  query deathFact($_id: ID!) {
+    deathFact(_id: $_id) {
       _id
       deathText
       createdAt
       username
-      reactions {
+      reactionCount
+      reaction {
         _id
         createdAt
         username
@@ -124,10 +115,35 @@ export const QUERY_DONATIONS = gql`
       description
       price
       image
+      category {
+        _id
+      }
     }
   }
 `;
 
+export const QUERY_ALL_DONATIONS = gql`
+  {
+    donations {
+      _id
+      name
+      description
+      price
+      category {
+        name
+      }
+    }
+  }
+`;
+
+export const QUERY_CATEGORIES = gql`
+  {
+    categories {
+      _id
+      name
+    }
+  }
+`;
 
 export const QUERY_CHECKOUT = gql`
   query getCheckout($donations: [ID]!) {

@@ -65,3 +65,20 @@ export const ADD_REACTION = gql`
     }
   }
 `;
+
+export const ADD_ORDER = gql`
+  mutation addOrder($donations: [ID]!) {
+    addOrder(donations: $donations) {
+      purchaseDate
+      donations {
+        _id
+        name
+        description
+        price
+        category {
+          name
+        }
+      }
+    }
+  }
+`;

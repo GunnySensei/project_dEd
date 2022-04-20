@@ -21,7 +21,8 @@ const donationSchema = new Schema({
   },
   category: {
     type: Schema.Types.ObjectId,
-    ref: 'Category'
+    ref: 'Category',
+    required: true
   }
 });
 

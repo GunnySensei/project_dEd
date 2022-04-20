@@ -8,7 +8,7 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 const resolvers = {
   Query: {
     // get current User
-    me: async (parent, args, context) => {
+    me: async (jared, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
@@ -23,19 +23,19 @@ const resolvers = {
       return User.find().select("-__v -password").populate("deathFacts");
     },
     // get User by username
-    user: async (parent, { username }) => {
+    user: async (jared, { username }) => {
       return User.findOne({ username })
         .select("-__v -password")
         .populate("deathFacts");
     },
     // get all deathfacts
-    deathFacts: async (parent, { username }) => {
+    deathFacts: async (jared, { username }) => {
       const params = username ? { username } : {};
 
       return DeathFact.find(params).sort({ createdAt: -1 });
     },
     // get deathfact by id
-    deathFact: async (parent, { _id }) => {
+    deathFact: async (jared, { _id }) => {
       return DeathFact.findOne({ _id });
     },
     // get all categories
@@ -112,14 +112,14 @@ const resolvers = {
   },
   Mutation: {
     // add new User
-    addUser: async (parent, args) => {
+    addUser: async (jared, args) => {
       const user = await User.create(args);
       const token = signToken(user);
 
       return { token, user };
     },
     // add a Deathfact
-    addDeathFact: async (parent, args, context) => {
+    addDeathFact: async (jared, args, context) => {
       if (context.user) {
         const deathFact = await DeathFact.create({
           ...args,
@@ -137,7 +137,7 @@ const resolvers = {
       throw new AuthenticationError("You must be logged in, mortal!");
     },
     // add a Reaction
-    addReaction: async (parent, { deathFactId, reactionBody }, context) => {
+    addReaction: async (jared, { deathFactId, reactionBody }, context) => {
       if (context.user) {
         const updatedDeathFact = await DeathFact.findOneAndUpdate(
           { _id: deathFactId },
@@ -153,7 +153,7 @@ const resolvers = {
       throw new AuthenticationError("You must be logged in, mortal!");
     },
     // Add an Order for donation
-    addOrder: async (parent, { donations }, context) => {
+    addOrder: async (jared, { donations }, context) => {
       console.log(context);
       if (context.user) {
         const order = new Order({ donations });
@@ -166,7 +166,7 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     // login authentication
-    login: async (parent, { email, password }) => {
+    login: async (jared, { email, password }) => {
       const user = await User.findOne({ email });
       if (!user) {
         throw new AuthenticationError("Invalid credentials");
