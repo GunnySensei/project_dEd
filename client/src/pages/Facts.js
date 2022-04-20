@@ -14,14 +14,16 @@ const Facts = () => {
   const loggedIn = Auth.loggedIn();
 
   return (
-    <section>
-      <div>
+    <section className="death-fact-content">
+      <div className="flex-row death-fact-content">
         {loggedIn && (
           <div className="col-12 mb-3 death-fact-form">
             <DeathFactForm />
           </div>
         )}
-        <div className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
+        <div
+          className={`col-12 mb-3 death-fact-list ${loggedIn && "col-lg-8"}`}
+        >
           {loading ? (
             <div>Loading...</div>
           ) : (

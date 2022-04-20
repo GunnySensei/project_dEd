@@ -232,8 +232,8 @@ nav li {
 /* page styles start */
 
 .page-title {
-  padding: 15px 15px 0 0;
-  width: 20%;
+  padding: 15px 15px 0 15px;
+  width: 30%;
   font-weight: normal;
   text-align: right;
 }
@@ -330,6 +330,47 @@ nav li {
 }
 
 /* login styles end */
+
+/* fact styles start */
+
+.death-fact-form {
+  display: flex;
+  width: 35%;
+  max-width: 300px;
+}
+
+.death-fact-title {
+  margin-left: 15px;
+  width: 100%;
+}
+
+.death-fact-content {
+  right: 15px;
+  width: 100%;
+}
+
+.death-fact-list-content {
+  padding: 15px 0 0 15px;
+}
+
+.death-fact-card {
+  margin: 0 1.5% 10px 0;
+  border: 3px solid whitesmoke;
+  border-radius: var(--border-radius);
+  color: var(--dark);
+  height: fit-content;
+  width: 45%;
+}
+
+.death-fact-card-body {
+  display: block;
+  width: 100%;
+  padding: 1.5%;
+  font-size: 1.4rem;
+  /* border-bottom: 1px dashed whitesmoke; */
+}
+
+/* fact styles end */
 
 textarea {
   width: 600px;
@@ -523,12 +564,20 @@ a {
   }
 
   .death-fact-form {
-    margin-top: 20px;
-    margin-left: 20px;
+    width: 100%;
   }
 
   .death-fact-form-input {
     width: 92.5%;
+  }
+
+  .death-fact-list-content {
+    padding-right: 15px;
+  }
+
+  .death-fact-card {
+    width: 100%;
+    padding-right: 15px;
   }
 
   .mx-2 {
