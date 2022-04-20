@@ -45,7 +45,7 @@ const Signup = () => {
         <div className="signup-card">
           <h4 className="card-header">Sign Up</h4>
           <div className="card-body">
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={handleFormSubmit} className="signup-form">
               <input
                 className="form-input"
                 placeholder="Your username"
@@ -76,30 +76,33 @@ const Signup = () => {
               <br></br>
               <br></br>
               <h5>Sex at Birth</h5>
-              <input
-                className="form-input"
-                name="sex"
-                type="radio"
-                id="sex"
-                value="Male"
-                onChange={handleChange}
-              />
-              <label htmlFor="Male" className="form-header">
-                Male
-              </label>
-              <input
-                className="form-input"
-                name="sex"
-                type="radio"
-                id="sex"
-                value="Female"
-                onChange={handleChange}
-              />
-              <label htmlFor="Female" className="form-header">
-                Female
-              </label>
-              <br></br>
-              <br></br>
+              <div className="flex-row">
+                <label htmlFor="Male" className="form-header">
+                  Male
+                </label>
+                <input
+                  className="form-input"
+                  name="sex"
+                  type="radio"
+                  id="sex"
+                  value="Male"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="flex-row">
+                <label htmlFor="Female" className="form-header">
+                  Female
+                </label>
+                <input
+                  className="form-input"
+                  name="sex"
+                  type="radio"
+                  id="sex"
+                  value="Female"
+                  onChange={handleChange}
+                />
+              </div>
+              <br />
               <h5>Date of Birth</h5>
               <input
                 className="form-input"
@@ -109,7 +112,6 @@ const Signup = () => {
                 value={formState.birthday}
                 onChange={handleChange}
               />
-              <br></br>
               <br></br>
               <button className="btn d-block w-100" type="submit">
                 Submit
