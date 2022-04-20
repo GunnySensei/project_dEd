@@ -26,7 +26,9 @@ const Nav = () => {
           {Auth.loggedIn() ? (
             <>
               <li className="mx-2">
-                <Link onClick={Auth.logout}>Logout</Link>
+                <Link to="/" onClick={Auth.logout}>
+                  Logout
+                </Link>
               </li>
             </>
           ) : (
