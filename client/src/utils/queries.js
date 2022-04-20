@@ -68,7 +68,6 @@ export const QUERY_USERS = gql`
       email
       sex
       birthday
-      password
       deathFacts {
         _id
         deathText
@@ -83,7 +82,7 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_DEATHFACTS = gql`
-  query deathFacts($username: String!) {
+  query deathFacts($username: String) {
     deathFacts(username: $username) {
       _id
       deathText

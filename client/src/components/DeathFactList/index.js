@@ -13,7 +13,7 @@ const DeathFactList = ({ deathFacts }) => {
       </div>
       <div className="page-content flex-row">
         {deathFacts &&
-          deathFacts.map((deathFact) => (
+          deathFacts.map(deathFact => (
             <div key={deathFact._id} className="card mb-3">
               <div className="card-body">
                 <Link to={`/fact/${deathFact._id}`}>
@@ -31,7 +31,7 @@ const DeathFactList = ({ deathFacts }) => {
                   className="text-light"
                 >
                   {deathFact.username}
-                </Link>{" "}
+                </Link>{''}
                 morbidly pondered on {deathFact.createdAt}
               </p>
               {/* <div className="card-body">

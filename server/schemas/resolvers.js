@@ -123,7 +123,7 @@ const resolvers = {
       if (context.user) {
         const deathFact = await DeathFact.create({
           ...args,
-          username: context.user.username,
+          username: context.user.username
         });
 
         await User.findByIdAndUpdate(
