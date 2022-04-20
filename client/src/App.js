@@ -58,7 +58,6 @@ function App() {
                   <Route exact path="/donations/:id" component={Detail} />
                   <Route exact path="/Login" component={Login} />
                   <Route exact path="/Signup" component={Signup} />
-
                   <Route component={NotFound} />
                 </Switch>
               </div>
