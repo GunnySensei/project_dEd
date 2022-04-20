@@ -2,7 +2,7 @@ import React from "react";
 
 import Userclock from "../components/Userclock";
 import ClosestLeaderboard from "../components/ClosestLeaderboard";
-import FarthestLeaderboard from "../components/FarthestLeaderboard";
+import FurthestLeaderboard from "../components/FarthestLeaderboard";
 import { useQuery } from "@apollo/client";
 import { QUERY_USERS } from "../utils/queries";
 
@@ -15,8 +15,10 @@ const Home = () => {
       <main>
         <div>
           <Userclock></Userclock>
-          <ClosestLeaderboard users={users} />
-          <FarthestLeaderboard users={users} />
+          <div className="flex-row align-items-center space-around">
+            <ClosestLeaderboard users={users} />
+            <FurthestLeaderboard users={users} />
+          </div>
         </div>
       </main>
     </>

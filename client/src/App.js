@@ -47,18 +47,18 @@ function App() {
         <div>
           <StoreProvider>
             <Nav />
-              <div className="container">
-                <Switch>
-                  <Route exact path="/" component={Home} />
-                  <Route exact path="/About" component={About} />
-                  <Route exact path="/Donate" component={Donate} />
-                  <Route exact path="/Facts" component={Facts} />
-                  <Route exact path="/Login" component={Login} />
-                  <Route exact path="/Signup" component={Signup} />
+            <div>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/About" component={About} />
+                <Route exact path="/Donate" component={Donate} />
+                <Route exact path="/Facts" component={Facts} />
+                <Route exact path="/Login" component={Login} />
+                <Route exact path="/Signup" component={Signup} />
 
-                  <Route component={NotFound} />
-                </Switch>
-              </div>
+                <Route component={NotFound} />
+              </Switch>
+            </div>
           </StoreProvider>
           <Footer></Footer>
         </div>
