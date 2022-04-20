@@ -116,7 +116,7 @@ export const QUERY_DONATIONS = gql`
       price
       image
     }
-  }
+  
 `;
 
 
