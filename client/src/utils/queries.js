@@ -68,6 +68,7 @@ export const QUERY_USERS = gql`
       email
       sex
       birthday
+      password
       deathFacts {
         _id
         deathText

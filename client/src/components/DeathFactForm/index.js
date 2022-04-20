@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useMutation } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { ADD_DEATHFACT } from "../../utils/mutations";
 import { QUERY_DEATHFACTS, QUERY_ME } from "../../utils/queries";
 
@@ -23,11 +23,11 @@ const DeathFactForm = () => {
       }
 
       // update me object's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, deathFacts: [...me.deathFacts, addDeathFact] } },
-      });
+      // const { me } = cache.readQuery({ query: QUERY_ME });
+      // cache.writeQuery({
+      //   query: QUERY_ME,
+      //   data: { me: { ...me, deathFacts: [...me.deathFacts, addDeathFact] } },
+      // });
     },
   });
 
@@ -57,7 +57,10 @@ const DeathFactForm = () => {
   };
 
   return (
-    <div>
+    <div className="death-fact-title">
+      <div className="">
+        <h3>Death Facts</h3>
+      </div>
       <p
         className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
       >
