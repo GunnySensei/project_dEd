@@ -74,14 +74,15 @@ const Signup = () => {
                 onChange={handleChange}
               />
               <br></br>
-              <br></br>
+              <hr />
+
               <h5>Sex at Birth</h5>
               <div className="flex-row">
                 <label htmlFor="Male" className="form-header">
                   Male
                 </label>
                 <input
-                  className="form-input"
+                  className="form-input-radio"
                   name="sex"
                   type="radio"
                   id="sex"
@@ -94,7 +95,7 @@ const Signup = () => {
                   Female
                 </label>
                 <input
-                  className="form-input"
+                  className="form-input-radio"
                   name="sex"
                   type="radio"
                   id="sex"
@@ -102,7 +103,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
               </div>
-              <br />
+              <hr />
               <h5>Date of Birth</h5>
               <input
                 className="form-input"

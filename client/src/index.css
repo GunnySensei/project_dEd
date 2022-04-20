@@ -284,8 +284,9 @@ nav li {
 }
 
 .form-header {
+  display: block;
   font-size: small;
-  width: 20%;
+  min-width: 20%;
 }
 
 /* sign up styles end */
@@ -421,4 +422,63 @@ a {
   border-radius: 5px;
   color: whitesmoke;
   font-weight: 600;
+}
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+  .card {
+    max-width: 100%;
+  }
+
+  .signup-card {
+    max-width: 100%;
+  }
+
+  .form-input {
+    width: 80%;
+  }
+
+  .logo-container {
+    max-width: 20%;
+  }
+
+  .logo {
+    max-width: 60%;
+    margin-top: 2.5vw;
+  }
+
+  nav {
+    width: 80%;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  .mx-2 {
+    font-size: 2.5vw;
+    margin-left: 0.25vw;
+    margin-right: 0.25vw;
+  }
+
+  .px-1 {
+    padding-left: 0;
+  }
+
+  .avatar-list {
+    width: 80%;
+    justify-content: space-around;
+  }
+
+  .avatar-img {
+    width: 10vw;
+  }
 }
