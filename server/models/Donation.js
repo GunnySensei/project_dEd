@@ -20,10 +20,9 @@ const donationSchema = new Schema({
     min: 0.99
   },
   category: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
+    type: 'Category',
     required: true
-  }
+ }
 });
 
 const Donation = mongoose.model('Donation', donationSchema);
