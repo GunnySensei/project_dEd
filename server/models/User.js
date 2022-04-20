@@ -30,7 +30,7 @@ const userSchema = new Schema (
             required: true,
         },
         orders: [Order.schema],
-        facts: [
+        deathFacts: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'DeathFact'

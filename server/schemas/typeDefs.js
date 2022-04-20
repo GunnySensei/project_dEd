@@ -7,7 +7,9 @@ const typeDefs = gql`
         _id: ID
         username: String
         email: String
-        password: String
+        sex: String
+        birthday: String
+        deathFacts: [DeathFact]
     }
 
     type Category {
@@ -32,6 +34,9 @@ const typeDefs = gql`
 
     type Reaction {
         _id: ID
+        reactionBody: String
+        createdAt: String
+        username: String
     }
 
     type DeathFact {

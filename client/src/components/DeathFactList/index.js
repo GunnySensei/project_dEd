@@ -16,8 +16,8 @@ const DeathFactList = ({ deathFacts }) => {
               <Link to={`/fact/${deathFact._id}`}>
                 <p>{deathFact.deathText}</p>
                 <p className="mb-0">
-                  Reactions: {deathFact.reactionCount} || Click to{" "}
-                  {deathFact.reactionCount ? "see" : "start"} the discussion!
+                  Reactions: {deathFact.reactions} || Click to{" "}
+                  {deathFact.reactions ? "see" : "start"} the discussion!
                 </p>
               </Link>
             </div>
