@@ -1,10 +1,11 @@
 import React from "react";
 import DonationList from "../components/DonationList";
-// import Checkout from "../components/Checkout";
+import DonCategoryMenu from "../components/DonCatMenu";
 
 const Donate = () => {
   return (
-    <div>
+    <div className="container">
+      <DonCategoryMenu />
       <DonationList />
     </div>
   );

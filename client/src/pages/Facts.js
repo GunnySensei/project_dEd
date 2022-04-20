@@ -18,7 +18,7 @@ const Facts = () => {
     <section>
       <div>
         {loggedIn && (
-          <div className="col-12 mb-3">
+          <div className="col-12 mb-3 death-fact-form">
             <DeathFactForm />
           </div>
         )}

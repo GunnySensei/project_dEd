@@ -64,14 +64,11 @@ const DeathFactForm = () => {
         Character Count: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
-      <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
-        onSubmit={handleFormSubmit}
-      >
+      <form className="flex-row" onSubmit={handleFormSubmit}>
         <textarea
           placeholder="Here's a morbid fact..."
           value={deathText}
-          className="form-input col-12 col-md-9"
+          className="death-fact-form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
         <button className="btn col-12 col-md-3" type="submit">

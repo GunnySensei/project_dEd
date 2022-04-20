@@ -8,14 +8,18 @@ const Footer = () => {
   return (
     <div className="footer-div footer">
       <section className="avatar-container">
-        <ul className="avatar-list">
+        <div className="avatar-list">
           <a
             href="https://github.com/GunnySensei"
             target="_blank"
             className="avatar"
             rel="noreferrer"
           >
-            <img src={gunneravatar} alt="Gunner's avatar"></img>
+            <img
+              src={gunneravatar}
+              alt="Gunner's avatar"
+              className="avatar-img"
+            ></img>
           </a>
           <a
             href="https://github.com/KevinJWilkerson"
@@ -23,7 +27,11 @@ const Footer = () => {
             className="avatar"
             rel="noreferrer"
           >
-            <img src={kevinavatar} alt="Kevin's avatar"></img>
+            <img
+              src={kevinavatar}
+              alt="Kevin's avatar"
+              className="avatar-img"
+            ></img>
           </a>
           <a
             href="https://github.com/diirtydog"
@@ -31,7 +39,11 @@ const Footer = () => {
             className="avatar"
             rel="noreferrer"
           >
-            <img src={andrewavatar} alt="Andrew's avatar"></img>
+            <img
+              src={andrewavatar}
+              alt="Andrew's avatar"
+              className="avatar-img"
+            ></img>
           </a>
           <a
             href="https://github.com/Sly-Ry"
@@ -39,9 +51,13 @@ const Footer = () => {
             className="avatar"
             rel="noreferrer"
           >
-            <img src={ryanavatar} alt="Ryan's avatar"></img>
+            <img
+              src={ryanavatar}
+              alt="Ryan's avatar"
+              className="avatar-img"
+            ></img>
           </a>
-        </ul>
+        </div>
       </section>
     </div>
   );
