@@ -11,8 +11,7 @@ const userSchema = new Schema (
             trim: true,
         },
         sex: {
-            type: String,
-            required: true,
+            type: String
         },
         email: {
             type: String,
@@ -26,8 +25,7 @@ const userSchema = new Schema (
             minLength: 3,
         },
         birthday: {
-            type: String,
-            required: true,
+            type: String
         },
         orders: [Order.schema],
         deathFacts: [
