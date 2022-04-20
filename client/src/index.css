@@ -253,6 +253,25 @@ nav li {
   max-width: 40%;
 }
 
+.home-card {
+  margin: 0 1.5% 20px 0;
+  border: 3px solid whitesmoke;
+  border-radius: var(--border-radius);
+  color: var(--dark);
+  height: fit-content;
+  width: 100%;
+  padding: 1rem;
+}
+
+.home-card-secondary {
+  margin: 0 1.5% 20px 0;
+  border: 3px solid whitesmoke;
+  border-radius: var(--border-radius);
+  color: var(--dark);
+  height: fit-content;
+  padding: 1rem;
+}
+
 .card-header {
   color: var(--primary);
   margin: 0;
@@ -265,6 +284,19 @@ nav li {
   padding: 2.5%;
   font-size: 1.4rem;
   /* border-bottom: 1px dashed whitesmoke; */
+}
+
+.card-body-purple {
+  color: var(--primary);
+  font-size: 3rem;
+}
+
+.card-body-white {
+  color: var(--light);
+}
+
+.username-h1 {
+  font-weight: bold;
 }
 
 /* page style end */
@@ -315,6 +347,13 @@ textarea {
   margin-bottom: 75px;
 }
 
+.home-container {
+  min-width: 80%;
+  max-width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .flex-row {
   display: flex;
   flex-wrap: wrap;
@@ -324,8 +363,20 @@ textarea {
   justify-content: space-between;
 }
 
+.space-around {
+  justify-content: space-around;
+}
+
 .flex-end {
   justify-content: flex-end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .mx-1 {
