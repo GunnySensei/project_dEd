@@ -115,10 +115,35 @@ export const QUERY_DONATIONS = gql`
       description
       price
       image
+      category {
+        _id
+      }
     }
-  
+  }
 `;
 
+export const QUERY_ALL_DONATIONS = gql`
+  {
+    donations {
+      _id
+      name
+      description
+      price
+      category {
+        name
+      }
+    }
+  }
+`;
+
+export const QUERY_CATEGORIES = gql`
+  {
+    categories {
+      _id
+      name
+    }
+  }
+`;
 
 export const QUERY_CHECKOUT = gql`
   query getCheckout($donations: [ID]!) {
