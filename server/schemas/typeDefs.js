@@ -8,6 +8,9 @@ const typeDefs = gql`
         username: String
         email: String
         password: String
+        sex: String
+        birthday: String
+        deathFacts: DeathFact
     }
 
     type Category {

@@ -14,8 +14,10 @@ const resolvers = {
           .select("-__v")
           .populate("deathFacts");
 
-            return DeathFact.find(params).sort({ createdAt: -1 });
+            // return DeathFact.find(params).sort({ createdAt: -1 });
+        return userData;
       }
+
     },
     // get all users
     users: async () => {
