@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 
-import { QUERY_D_CAT } from "../../utils/queries";
+import { QUERY_CATEGORIES } from "../../utils/queries";
 
-import { UPDATE_D_CAT, UPDATE_CURRENT_DONATION } from "../../utils/actions";
+import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from "../../utils/actions";
 
 import { useStoreContext } from "../../utils/GlobalState";
 import { idbPromise } from "../../utils/helpers";
@@ -13,12 +13,12 @@ function DonCategoryMenu() {
 
   const { categories } = state;
 
-  const { loading, data: categoryData } = useQuery(QUERY_D_CAT);
+  const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
 
   useEffect(() => {
     if (categoryData) {
       dispatch({
-        type: UPDATE_D_CAT,
+        type: UPDATE_CATEGORIES,
         categories: categoryData.categories,
       });
 
@@ -28,7 +28,7 @@ function DonCategoryMenu() {
     } else if (!loading) {
       idbPromise("categories", "get").then((categories) => {
         dispatch({
-          type: UPDATE_D_CAT,
+          type: UPDATE_CATEGORIES,
           categories: categories,
         });
       });
@@ -37,7 +37,7 @@ function DonCategoryMenu() {
 
   const handleClick = (id) => {
     dispatch({
-      type: UPDATE_CURRENT_DONATION,
+      type: UPDATE_CURRENT_CATEGORY,
       currentCategory: id,
     });
   };
