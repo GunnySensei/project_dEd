@@ -27,7 +27,7 @@ const ClosestLeaderboard = ({ users }) => {
           {users &&
             users.map((user) => (
               <div key={user._id} className="card-body-white">
-                <h3 className="user-name">{user.username}</h3>
+                <h3 className="username-purple">{user.username}</h3>
                 <p className="user-birthday">
                   {getTimeLeft(user.birthday, user.sex).yearsLeft} years ,{" "}
                   {getTimeLeft(user.birthday, user.sex).monthsLeft} months ,{" "}

@@ -272,6 +272,16 @@ nav li {
   padding: 1rem;
 }
 
+.home-card-no-color {
+  margin: 0 1.5% 20px 0;
+  border: 3px solid whitesmoke;
+  border-radius: var(--border-radius);
+  height: fit-content;
+  width: 50%;
+  height: 36rem;
+  padding: 1rem;
+}
+
 .card-header {
   color: var(--primary);
   margin: 0;
@@ -297,6 +307,15 @@ nav li {
 
 .username-h1 {
   font-weight: bold;
+}
+
+.username-purple {
+  color: var(--primary);
+}
+
+.reaper-about-img {
+  width: 37rem;
+  margin-left: 13rem;
 }
 
 /* page style end */
@@ -418,6 +437,10 @@ textarea {
 
 .bold {
   font-weight: bold;
+}
+
+.justify-text {
+  text-align: justify;
 }
 
 .mx-1 {
