@@ -1,17 +1,16 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_ME_BASIC = gql`
-    {
-        me {
-            _id
-            username
-            email
-            deathFacts {
-                _id
-                deathText
-            }
-        }
-    
+  {
+    me {
+      _id
+      username
+      email
+      deathFacts {
+          _id
+          deathText
+      }
+    }
   }
 `;
 
@@ -109,14 +108,13 @@ export const QUERY_DEATHFACT = gql`
 `;
 
 export const QUERY_DONATIONS = gql`
-    query getDonations($price: ID) {
-        donations(price: $price) {
-            _id
-            name
-            description
-            price
-            image
-        }
+  query getDonations($price: ID) {
+    donations(price: $price) {
+      _id
+      name
+      description
+      price
+      image
     }
   
 `;
