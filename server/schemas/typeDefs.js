@@ -3,53 +3,83 @@ const { gql } = require("apollo-server-express");
 
 // TypeDefs tagged template function.
 const typeDefs = gql`
-  type User {
-    _id: ID
-    username: String
-    email: String
-    sex: String
-    birthday: String
-    password: String
-    facts: [DeathFact]
-  }
+    type User {
+        _id: ID
+        username: String
+        email: String
+        sex: String
+        birthday: String
+        password: String
+        deathFacts: [DeathFact]
+    }
 
-  type Reaction {
-    _id: ID
-  }
+    type Category {
+        _id: ID
+        name: String
+    }
+    
+    type Donation {
+        _id: ID
+        name: String
+        description: String
+        image: String
+        price: Float
+        category: Category
+    }
 
-  type DeathFact {
-    _id: ID
-    deathText: String
-    createdAt: String
-    username: String
-    reactions: [Reaction]
-  }
+    type Order {
+        _id: ID
+        purchaseDate: String
+        donations: [Donation]
+    }
 
-  type Query {
-    me: User
-    users: [User]
-    user(username: String!): User
-    deathFacts: [DeathFact]
-    deathFact(_id: ID!): DeathFact
-  }
+    type Reaction {
+        _id: ID
+    }
 
-  type Mutation {
-    login(email: String!, password: String!): Auth
-    addUser(
-      username: String!
-      password: String!
-      email: String!
-      birthday: String!
-      sex: String!
-    ): Auth
-    addDeathFact(deathText: String!): DeathFact
-    addReaction(deathFactId: ID!, reactionBody: String!): DeathFact
-  }
+    type DeathFact {
+        _id: ID
+        deathText: String
+        createdAt: String
+        username: String
+        reactions: [Reaction]
+    }
 
-  type Auth {
-    token: ID!
-    user: User
-  }
+    type Query {
+        me: User
+        users: [User]
+        user(username: String!): User
+        deathFacts: [DeathFact]
+        deathFact(_id: ID!): DeathFact
+        donations: [Donation]
+        donation(_id: ID!): Donation
+        categories: [Category]
+        order(_id: ID!): Order
+        checkout(donations: [ID]!): Checkout
+    }
+
+    type Mutation {
+        login(email: String!, password: String!): Auth
+        addUser(
+            username: String!, 
+            password: String!, 
+            email: String!, 
+            birthday: String!, 
+            sex: String!
+        ): Auth
+        addDeathFact(deathText: String!): DeathFact
+        addReaction(deathFactId: ID!, reactionBody: String!): DeathFact
+        addOrder(donations: [ID]!): Order
+    }
+
+    type Checkout {
+        session: ID
+    }
+    
+    type Auth {
+        token: ID!
+        user: User
+    }
 `;
 
 module.exports = typeDefs;

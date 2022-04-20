@@ -56,14 +56,27 @@ export const ADD_REACTION = gql`
   mutation addReaction($deathFactId: ID!, $reactionBody: String!) {
     addReaction(deathFactId: $deathFactId, reactionBody: $reactionBody) {
       _id
-      reactionCount
       reactions {
         _id
-        reactions {
-          _id
-          reactionBody
-          createdAt
-          username
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
+
+export const ADD_ORDER = gql`
+  mutation addOrder($donations: [ID]!) {
+    addOrder(donations: $donations) {
+      purchaseDate
+      donations {
+        _id
+        name
+        description
+        price
+        category {
+          name
         }
       }
     }

@@ -11,15 +11,17 @@ import { setContext } from "@apollo/client/link/context";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
-import { StoreProvider } from "./utils/GlobalState";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Donate from "./pages/Donate";
+// import Detail from "./pages/Detail";
 import Facts from "./pages/Facts";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
+
+import { StoreProvider } from "./utils/GlobalState";
 
 const httpLink = createHttpLink({
   uri: "/graphql",

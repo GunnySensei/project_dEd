@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon",
-    "seed": "node seeders/seeds.js"
+    "seed": "node config/seeds.js"
   },
   "keywords": [],
   "author": "",
@@ -15,11 +15,9 @@
     "apollo-server-express": "^3.6.7",
     "bcrypt": "^5.0.1",
     "express": "^4.17.1",
-    "faker": "^4.1.0",
     "graphql": "^16.3.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.9",
-    "mongoose-seed-plus": "^1.0.0",
     "stripe": "^8.215.0"
   },
   "devDependencies": {

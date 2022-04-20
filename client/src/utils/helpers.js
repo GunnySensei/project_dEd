@@ -24,7 +24,7 @@ export function pluralize(name, count) {
         const db = request.result;
         // create object store for each type of data and set "primary" key index to be the `_id` of the data
         //  Last time, we simply let them use their built-in auto increment features. But now, we'd like to provide the actual index value we want to use for looking up data. 
-        // Because that index value will be the MongoDB _id property for each product or category, it makes sense to set the keyPath name to _id.
+        // Because that index value will be the MongoDB _id property for each donation or category, it makes sense to set the keyPath name to _id.
         db.createObjectStore('donations', { keyPath: '_id' });
         db.createObjectStore('categories', { keyPath: '_id' });
         db.createObjectStore('checkout', { keyPath: '_id' });

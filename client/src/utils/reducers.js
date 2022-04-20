@@ -1,8 +1,8 @@
 import { useReducer } from "react";
 import {
     UPDATE_DONATIONS,
-    UPDATE_D_CAT,
-    UPDATE_CURRENT_DONATION
+    UPDATE_CATEGORIES,
+    UPDATE_CURRENT_CATEGORY
 } from "./actions";
   
 export const reducer = (state, action) => {
@@ -12,17 +12,17 @@ export const reducer = (state, action) => {
                 ...state,
                 donations: [...action.donations],
             };
-        
-        case UPDATE_D_CAT:
+
+        case UPDATE_CATEGORIES:
             return {
                 ...state,
                 categories: [...action.categories]
             };
 
-        case UPDATE_CURRENT_DONATION:
+        case UPDATE_CURRENT_CATEGORY:
             return {
                 ...state,
-                currentDonation: action.currentDonation,
+                currentCategory: action.currentCategory,
             };
 
         default:

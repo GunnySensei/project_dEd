@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const Order = require('./Order')
 
 const userSchema = new Schema (
     {
@@ -10,7 +11,7 @@ const userSchema = new Schema (
             trim: true,
         },
         sex: {
-            type: String,
+            type: String
         },
         email: {
             type: String,
@@ -26,7 +27,8 @@ const userSchema = new Schema (
         birthday: {
             type: String
         },
-        facts: [
+        orders: [Order.schema],
+        deathFacts: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'DeathFact'

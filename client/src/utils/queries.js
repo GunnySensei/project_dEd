@@ -5,10 +5,11 @@ export const QUERY_ME_BASIC = gql`
     me {
       _id
       username
-      email
+      email 
+      sex
       deathFacts {
-        _id
-        deathText
+          _id
+          deathText
       }
     }
   }
@@ -20,37 +21,36 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      birthday
       sex
-      #deathFacts {
-      #_id
-      #deathText
-      #createdAt
-      #reactionCount
-      #reactions {
-      #_id
-      #createdAt
-      #reactionBody
-      #username
-      #}
-      #}
+      birthday
+      deathFacts {
+        _id
+        deathText
+        createdAt
+        #reactions {
+          #_id
+          #createdAt
+          #reactionBody
+          #username
+        #}
+      }
     }
   }
 `;
 
 export const QUERY_USER = gql`
-  query User($id: ID!) {
+  query user($id: ID!) {
     user(id: $id) {
       _id
       username
       email
-      birthday
       sex
+      birthday
       deathFacts {
         _id
         deathText
         createdAt
-        reactionCount
+        reactionsCount
       }
     }
   }
@@ -108,13 +108,12 @@ export const QUERY_DEATHFACT = gql`
 `;
 
 export const QUERY_DONATIONS = gql`
-  query getDonations($category: ID) {
-    donations(category: $category) {
+  query getDonations($price: ID) {
+    donations(price: $price) {
       _id
       name
       description
       price
-      quantity
       image
       category {
         _id
@@ -123,11 +122,25 @@ export const QUERY_DONATIONS = gql`
   }
 `;
 
-export const QUERY_D_CAT = gql`
+export const QUERY_ALL_DONATIONS = gql`
+  {
+    donations {
+      _id
+      name
+      description
+      price
+      category {
+        name
+      }
+    }
+  }
+`;
+
+export const QUERY_CATEGORIES = gql`
   {
     categories {
       _id
-      price
+      name
     }
   }
 `;
