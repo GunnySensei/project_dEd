@@ -57,7 +57,10 @@ const DeathFactForm = () => {
   };
 
   return (
-    <div>
+    <div className="death-fact-title">
+      <div className="">
+        <h3>Death Facts</h3>
+      </div>
       <p
         className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
       >

@@ -7,15 +7,12 @@ const DeathFactList = ({ deathFacts }) => {
   }
 
   return (
-    <div className="flex-row">
-      <div className="page-title">
-        <h3>Death Facts</h3>
-      </div>
-      <div className="page-content flex-row">
+    <div className="flex-row death-fact-list-content">
+      <div className="flex-row">
         {deathFacts &&
           deathFacts.map((deathFact) => (
-            <div key={deathFact._id} className="card mb-3">
-              <div className="card-body">
+            <div key={deathFact._id} className="death-fact-card mb-3">
+              <div className="death-fact-card-body">
                 <Link to={`/fact/${deathFact._id}`}>
                   <p>{deathFact.deathText}</p>
                   {/* <p className="mb-0">

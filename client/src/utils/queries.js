@@ -7,7 +7,6 @@ export const QUERY_ME_BASIC = gql`
       username
       email 
       sex
-      birthday
       deathFacts {
           _id
           deathText
@@ -28,12 +27,12 @@ export const QUERY_ME = gql`
         _id
         deathText
         createdAt
-        reactions {
-          _id
-          createdAt
-          reactionBody
-          username
-        }
+        #reactions {
+          #_id
+          #createdAt
+          #reactionBody
+          #username
+        #}
       }
     }
   }
@@ -51,10 +50,7 @@ export const QUERY_USER = gql`
         _id
         deathText
         createdAt
-        username
-        reactions {
-          _id
-        }
+        reactionsCount
       }
     }
   }
@@ -83,30 +79,25 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_DEATHFACTS = gql`
-  query deathFacts($username: String!) {
-    deathFacts(username: $username) {
+  query Query {
+    deathFacts {
       _id
       deathText
       createdAt
       username
-      reactions {
-        _id
-        createdAt
-        username
-        reactionBody
-      }
     }
   }
 `;
 
 export const QUERY_DEATHFACT = gql`
-  query deathFact($id: ID!) {
-    deathFact(_id: $id) {
+  query deathFact($_id: ID!) {
+    deathFact(_id: $_id) {
       _id
       deathText
       createdAt
       username
-      reactions {
+      reactionCount
+      reaction {
         _id
         createdAt
         username
