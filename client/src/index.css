@@ -122,7 +122,7 @@ span[role="img"] {
 }
 
 form {
-  width: 40%;
+  width: 100%;
 }
 
 input {
@@ -250,7 +250,7 @@ nav li {
   color: var(--dark);
   height: fit-content;
   min-width: 20%;
-  max-width: 30%;
+  max-width: 40%;
 }
 
 .card-header {
@@ -264,18 +264,39 @@ nav li {
 .card-body {
   padding: 2.5%;
   font-size: 1.4rem;
-  border-bottom: 1px dashed whitesmoke;
+  /* border-bottom: 1px dashed whitesmoke; */
 }
 
 /* page style end */
 
 /* sign up styles start */
 
+.signup-card {
+  margin: 0 1.5% 20px 0;
+  border: 3px solid whitesmoke;
+  border-radius: var(--border-radius);
+  height: fit-content;
+  max-width: 60%;
+}
+
+.signup-form {
+  width: 100%;
+}
+
 .form-header {
   font-size: small;
+  width: 20%;
 }
 
 /* sign up styles end */
+
+/* login styles start */
+
+.form-input {
+  max-width: 80%;
+}
+
+/* login styles end */
 
 textarea {
   width: 600px;
@@ -392,7 +413,7 @@ button {
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 30px;
+  margin-top: 10px;
   padding: 10px 15px;
 }
 
