@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Donate from "./pages/Donate";
+// import Detail from "./pages/Detail";
 import Facts from "./pages/Facts";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";

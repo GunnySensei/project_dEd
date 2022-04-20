@@ -7,11 +7,10 @@ import getTimeLeft from "../../utils/formatTime";
 
 const Userclock = () => {
   const { loading, error, data } = useQuery(QUERY_ME);
-
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
 
-  const birthday = data.me.birthday || "";
+  const birthday = data.me.birthday  || "";
   const username = data.me.username || "";
   const sex = data.me.sex || "";
 

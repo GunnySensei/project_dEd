@@ -8,17 +8,15 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 const resolvers = {
   Query: {
     // get current User
-    me: async (jared, cheese, context) => {
+    me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
-          .select("-__v")
-          .popluate("birthday")
+          .select("-__v -password")
           .populate("deathFacts");
 
-            // return DeathFact.find(params).sort({ createdAt: -1 });
-        return userData;
+            return userData;
       }
-
+      throw new AuthenticationError('Not logged in');
     },
     // get all users
     users: async () => {
@@ -38,7 +36,7 @@ const resolvers = {
     },
     // get deathfact by id
     deathFact: async (parent, { _id }) => {
-      return DeathFact.findById(_id);
+      return DeathFact.findOne({ _id });
     },
     // get all categories
     categories: async () => {

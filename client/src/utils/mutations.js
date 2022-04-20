@@ -56,15 +56,11 @@ export const ADD_REACTION = gql`
   mutation addReaction($deathFactId: ID!, $reactionBody: String!) {
     addReaction(deathFactId: $deathFactId, reactionBody: $reactionBody) {
       _id
-      reactionCount
       reactions {
         _id
-        reactions {
-          _id
-          reactionBody
-          createdAt
-          username
-        }
+        reactionBody
+        createdAt
+        username
       }
     }
   }
