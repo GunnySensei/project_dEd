@@ -41,13 +41,13 @@
   ### Team Terminal   
   Contact Info: 
   
-  andrew.derek.wales@gmail.com [![Andrew Wales](https://contrib.rocks/image?repo=diirtydog/Take-This-Job-And)](https://github.com/diirtydog)
+  andrew.derek.wales@gmail.com
   
-  kevin.j.wilkerson@gmail.com[![Kevin Wilkerson](https://contrib.rocks/image?repo=KevinJWilkerson/team-profile-generator)](https://github.com/KevinJWilkerson)
+  kevin.j.wilkerson@gmail.com
   
-  ryan.williams93@aol.com[![Ryan Williams](https://contrib.rocks/image?repo=Sly-Ry/NoSpace)](https://github.com/Sly-Ry)
+  ryan.williams93@aol.com
   
-  gunnerwagoner@gmail.com[![Gunner Wagoner](https://contrib.rocks/image?repo=GunnySensei/project_prestige_worldwide)](https://github.com/GunnySensei)
+  gunnerwagoner@gmail.com
   
   
   
