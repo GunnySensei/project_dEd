@@ -23,7 +23,7 @@ db.once('open', async () => {
             image: 'placeholder',
             price: 1.00,
             category: categories[0]._id
-        },
+        }, 
         {
             name: 'Five Dollar Baller',
             description: 'You can donate a nickel on this big daddy 😉!',
@@ -75,30 +75,6 @@ db.once('open', async () => {
     console.log('Get them facts straight cat daddy!');
 
     const users = await User.insertMany([
-        // {
-        //     username: "Biggy",
-        //     sex: "male",
-        //     email: "biggy@big.com",
-        //     password: "12345",
-        //     birthday: "09/12/1988",
-        //     deathFacts: deathFacts[1]._id
-        // },
-        // {
-        //     username: 'smally',
-        //     sex: 'female',
-        //     email: 'smally@small.com',
-        //     password: '12345',
-        //     birthday: '08/22/1997',
-        //     deathFacts: deathFacts[2]._id
-        // },
-        // {
-        //     username: 'DickTater',
-        //     sex: 'female',
-        //     email: 'dick@tater.com',
-        //     password: '12345',
-        //     birthday: '09/15/2001',
-        //     deathFacts: deathFacts[0]._id
-        // },
         {
             username: "diccy",
             sex: "female",
