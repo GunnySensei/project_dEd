@@ -75,30 +75,39 @@ db.once('open', async () => {
     console.log('Get them facts straight cat daddy!');
 
     const users = await User.insertMany([
+        // {
+        //     username: "Biggy",
+        //     sex: "male",
+        //     email: "biggy@big.com",
+        //     password: "12345",
+        //     birthday: "09/12/1988",
+        //     deathFacts: deathFacts[1]._id
+        // },
+        // {
+        //     username: 'smally',
+        //     sex: 'female',
+        //     email: 'smally@small.com',
+        //     password: '12345',
+        //     birthday: '08/22/1997',
+        //     deathFacts: deathFacts[2]._id
+        // },
+        // {
+        //     username: 'DickTater',
+        //     sex: 'female',
+        //     email: 'dick@tater.com',
+        //     password: '12345',
+        //     birthday: '09/15/2001',
+        //     deathFacts: deathFacts[0]._id
+        // },
         {
-            username: "Bigg",
-            sex: "male",
-            email: "bigg@big.com",
+            username: "diccy",
+            sex: "female",
+            email: "diccy@big.com",
             password: "12345",
-            birthday: "09/12/1988",
+            birthday: "1950-12-22",
             deathFacts: deathFacts[1]._id
-        },
-        {
-            username: 'small',
-            sex: 'female',
-            email: 'small@small.com',
-            password: '12345',
-            birthday: '08/22/1997',
-            deathFacts: deathFacts[2]._id
-        },
-        {
-            username: 'DickTater01',
-            sex: 'female',
-            email: 'dick01@tater.com',
-            password: '12345',
-            birthday: '09/15/2001',
-            deathFacts: deathFacts[0]._id
         }
+        
     ]);
 
     console.log('Users engage!');

@@ -23,7 +23,7 @@ const donationSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Category',
     required: true
-  }
+ }
 });
 
 const Donation = mongoose.model('Donation', donationSchema);
