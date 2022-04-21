@@ -31,26 +31,28 @@
  <img src="assets/Screen Shot 2022-04-20 at 22.32.01.png" alt="">
 
   ## Contributions
-  [![Gunner Wagoner](https://contrib.rocks/image?repo=GunnySensei/project_prestige_worldwide)](https://github.com/GunnySensei)
-  [![Ryan Williams](https://contrib.rocks/image?repo=Sly-Ry/NoSpace)](https://github.com/Sly-Ry)
-  [![Andrew Wales](https://contrib.rocks/image?repo=diirtydog/Take-This-Job-And)](https://github.com/diirtydog)
-  [![Kevin Wilkerson](https://contrib.rocks/image?repo=KevinJWilkerson/team-profile-generator)](https://github.com/KevinJWilkerson)
+  [![Gunner Wagoner](https://contrib.rocks/image?repo=GunnySensei/project_prestige_worldwide)](https://github.com/GunnySensei/project_prestige_worldwide)
+  [![Ryan Williams](https://contrib.rocks/image?repo=Sly-Ry/NoSpace)](https://github.com/Sly-Ry/NoSpace)
+  [![Andrew Wales](https://contrib.rocks/image?repo=diirtydog/Take-This-Job-And)](https://github.com/diirtydog/Take-This-Job-And)
+  [![Kevin Wilkerson](https://contrib.rocks/image?repo=KevinJWilkerson/team-profile-generator)](https://github.com/KevinJWilkerson/team-profile-generator)
+  ## Testing Instructions
   
   ## Contact Information
   ### Team Terminal   
   Contact Info: 
   
-  andrew.derek.wales@gmail.com
+  andrew.derek.wales@gmail.com [![Andrew Wales](https://contrib.rocks/image?repo=diirtydog/Take-This-Job-And)](https://github.com/diirtydog)
   
-  kevin.j.wilkerson@gmail.com
+  kevin.j.wilkerson@gmail.com[![Kevin Wilkerson](https://contrib.rocks/image?repo=KevinJWilkerson/team-profile-generator)](https://github.com/KevinJWilkerson)
   
-  ryan.williams93@aol.com
+  ryan.williams93@aol.com[![Ryan Williams](https://contrib.rocks/image?repo=Sly-Ry/NoSpace)](https://github.com/Sly-Ry)
   
-  gunnerwagoner@gmail.com
+  gunnerwagoner@gmail.com[![Gunner Wagoner](https://contrib.rocks/image?repo=GunnySensei/project_prestige_worldwide)](https://github.com/GunnySensei)
   
   
   
   ![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=diirtydog&show_icons=true)![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=GunnySensei&show_icons=true)
+  
   ![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=Sly-Ry&show_icons=true)![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=KevinJWilkerson&show_icons=true)
 
 

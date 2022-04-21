@@ -10,7 +10,6 @@ import DeathFactList from "../components/DeathFactList";
 const Facts = () => {
   const { loading, data } = useQuery(QUERY_DEATHFACTS);
   const deathFacts = data?.deathFacts || [];
-
   const loggedIn = Auth.loggedIn();
 
   return (
