@@ -273,12 +273,11 @@ nav li {
 }
 
 .home-card-no-color {
-  margin: 0 1.5% 20px 0;
+  margin: 0 1.5% 0 0;
   border: 3px solid whitesmoke;
   border-radius: var(--border-radius);
   height: fit-content;
-  width: 50%;
-  height: 36rem;
+  width: 40%;
   padding: 1rem;
 }
 
@@ -314,8 +313,8 @@ nav li {
 }
 
 .reaper-about-img {
-  width: 37rem;
-  margin-left: 13rem;
+  width: 40%;
+  margin-left: 5%;
 }
 
 /* page style end */
@@ -545,6 +544,18 @@ a {
 
 /* MEDIA QUERY FOR TABLETS AND SMALLER */
 @media screen and (max-width: 768px) {
+  .home-card-no-color {
+    margin: 0 1.5% 0 0;
+    border: 3px solid whitesmoke;
+    border-radius: var(--border-radius);
+    height: fit-content;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .reaper-about-img {
+    display: none;
+  }
 }
 
 /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
@@ -584,6 +595,19 @@ a {
 
   .page-content {
     width: 95%;
+  }
+
+  .home-card-no-color {
+    margin: 0 1.5% 0 0;
+    border: 3px solid whitesmoke;
+    border-radius: var(--border-radius);
+    height: fit-content;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .reaper-about-img {
+    display: none;
   }
 
   .death-fact-form {
