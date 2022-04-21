@@ -76,28 +76,28 @@ db.once('open', async () => {
 
     const users = await User.insertMany([
         {
-            username: "Biggy",
+            username: "Bigg",
             sex: "male",
-            email: "biggy@big.com",
+            email: "bigg@big.com",
             password: "12345",
             birthday: "09/12/1988",
-            facts: deathFacts[1]._id
+            deathFacts: deathFacts[1]._id
         },
         {
-            username: 'smally',
+            username: 'small',
             sex: 'female',
-            email: 'smally@small.com',
+            email: 'small@small.com',
             password: '12345',
             birthday: '08/22/1997',
-            facts: deathFacts[2]._id
+            deathFacts: deathFacts[2]._id
         },
         {
-            username: 'DickTater',
+            username: 'DickTater01',
             sex: 'female',
-            email: 'dick@tater.com',
+            email: 'dick01@tater.com',
             password: '12345',
             birthday: '09/15/2001',
-            facts: deathFacts[0]._id
+            deathFacts: deathFacts[0]._id
         }
     ]);
 
