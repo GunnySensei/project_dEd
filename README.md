@@ -31,23 +31,22 @@
  <img src="assets/Screen Shot 2022-04-20 at 22.32.01.png" alt="">
 
   ## Contributions
-  [![Gunner Wagoner](https://contrib.rocks/image?repo=GunnySensei/project_prestige_worldwide)](https://github.com/GunnySensei/project_prestige_worldwide)
-  [![Ryan Williams](https://contrib.rocks/image?repo=Sly-Ry/NoSpace)](https://github.com/Sly-Ry/NoSpace)
-  [![Andrew Wales](https://contrib.rocks/image?repo=diirtydog/Take-This-Job-And)](https://github.com/diirtydog/Take-This-Job-And)
-  [![Kevin Wilkerson](https://contrib.rocks/image?repo=KevinJWilkerson/team-profile-generator)](https://github.com/KevinJWilkerson/team-profile-generator)
-  ## Testing Instructions
+  [![Gunner Wagoner](https://contrib.rocks/image?repo=GunnySensei/project_prestige_worldwide)](https://github.com/GunnySensei)
+  [![Ryan Williams](https://contrib.rocks/image?repo=Sly-Ry/NoSpace)](https://github.com/Sly-Ry)
+  [![Andrew Wales](https://contrib.rocks/image?repo=diirtydog/Take-This-Job-And)](https://github.com/diirtydog)
+  [![Kevin Wilkerson](https://contrib.rocks/image?repo=KevinJWilkerson/team-profile-generator)](https://github.com/KevinJWilkerson)
   
   ## Contact Information
   ### Team Terminal   
   Contact Info: 
   
-  andrew.derek.wales@gmail.com [![Andrew Wales](https://contrib.rocks/image?repo=diirtydog/Take-This-Job-And)](https://github.com/diirtydog)
+  andrew.derek.wales@gmail.com 
   
-  kevin.j.wilkerson@gmail.com[![Kevin Wilkerson](https://contrib.rocks/image?repo=KevinJWilkerson/team-profile-generator)](https://github.com/KevinJWilkerson)
+  kevin.j.wilkerson@gmail.com
   
-  ryan.williams93@aol.com[![Ryan Williams](https://contrib.rocks/image?repo=Sly-Ry/NoSpace)](https://github.com/Sly-Ry)
+  ryan.williams93@aol.com
   
-  gunnerwagoner@gmail.com[![Gunner Wagoner](https://contrib.rocks/image?repo=GunnySensei/project_prestige_worldwide)](https://github.com/GunnySensei)
+  gunnerwagoner@gmail.com
   
   
   
