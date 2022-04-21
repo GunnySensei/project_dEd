@@ -6,8 +6,8 @@ export const QUERY_ME_BASIC = gql`
       _id
       username
       email
-      birthday
       sex
+      birthday
       deathFacts {
           _id
           deathText
@@ -23,6 +23,7 @@ export const QUERY_ME = gql`
       username
       email
       sex
+      birthday
       #deathFacts {
         #_id
         #deathText
