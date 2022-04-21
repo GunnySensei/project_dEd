@@ -5,11 +5,11 @@ export const QUERY_ME_BASIC = gql`
     me {
       _id
       username
-      email 
+      email
       sex
       deathFacts {
-          _id
-          deathText
+        _id
+        deathText
       }
     }
   }
@@ -28,10 +28,10 @@ export const QUERY_ME = gql`
         deathText
         createdAt
         #reactions {
-          #_id
-          #createdAt
-          #reactionBody
-          #username
+        #_id
+        #createdAt
+        #reactionBody
+        #username
         #}
       }
     }
