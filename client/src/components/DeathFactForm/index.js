@@ -21,7 +21,7 @@ const DeathFactForm = () => {
       } catch (e) {
         console.error(e);
       }
-    },
+    }
   });
 
   // update state based on form input changes

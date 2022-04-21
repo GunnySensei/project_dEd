@@ -35,7 +35,6 @@ const getTimeLeft = (dateString, sex) => {
   );
   let numericDeathday = deathDay.getTime();
 
-  let totalLife = numericDeathday - numericBirthday;
   let timeNow = new Date();
   let numericTimeNow = timeNow.getTime();
   let secondsLeft = numericDeathday - numericTimeNow;
