@@ -6,7 +6,7 @@ import { QUERY_ME } from "../../utils/queries";
 import getTimeLeft from "../../utils/formatTime";
 
 const Userclock = () => {
-  const { loading, error, data } = useQuery(QUERY_ME);
+  const { loading, error,  data } = useQuery(QUERY_ME);
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
 

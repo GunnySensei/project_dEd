@@ -11,8 +11,7 @@ import { setContext } from "@apollo/client/link/context";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
-
-import Home from "./pages/Home";
+import Leaderboard from "./pages/Leaderboard";
 import About from "./pages/About";
 import Donate from "./pages/Donate";
 // import Detail from "./pages/Detail";
@@ -51,7 +50,7 @@ function App() {
             <Nav />
             <div>
               <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={Leaderboard} />
                 <Route exact path="/About" component={About} />
                 <Route exact path="/Donate" component={Donate} />
                 <Route exact path="/Facts" component={Facts} />

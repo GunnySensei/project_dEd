@@ -6,7 +6,7 @@ import FurthestLeaderboard from "../components/FarthestLeaderboard";
 import { useQuery } from "@apollo/client";
 import { QUERY_USERS } from "../utils/queries";
 
-const Home = () => {
+const Leaderboard = () => {
   const { data } = useQuery(QUERY_USERS);
   const users = data?.users || [];
 
@@ -25,4 +25,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Leaderboard;
