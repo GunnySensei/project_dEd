@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.73de939b.css",
+    "main.js": "/static/js/main.b6abe388.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/spinner.gif": "/static/media/spinner.689d9a07cc3c3eddc116.gif",
+    "static/media/reaper-logo.png": "/static/media/reaper-logo.be648ab56cf838979196.png",
+    "static/media/noun-soul-ripper.svg": "/static/media/noun-soul-ripper.fa7e407ea5378e194c18bd4cc42fa84d.svg",
+    "static/media/gunneravatar.svg": "/static/media/gunneravatar.73bf0c483d1ad262d497d7842c2a9e68.svg",
+    "static/media/andrewavatar.svg": "/static/media/andrewavatar.073540deb051c7665591749498f03265.svg",
+    "static/media/ryanavatar.svg": "/static/media/ryanavatar.66c2e2f358d173f2757b2f4116066c64.svg",
+    "static/media/kevinavatar.svg": "/static/media/kevinavatar.662f1ec48e885d33b92bde5412ec3bbd.svg",
+    "index.html": "/index.html",
+    "main.73de939b.css.map": "/static/css/main.73de939b.css.map",
+    "main.b6abe388.js.map": "/static/js/main.b6abe388.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.73de939b.css",
+    "static/js/main.b6abe388.js"
+  ]
+}
